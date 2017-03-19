@@ -63,3 +63,44 @@ def test_when_push_increases_length(test_lists):
     length = ll._length
     ll.push(3)
     assert ll._length is length + 1
+
+
+def test_pop_multi_list(test_lists):
+    """Test pop on list of 5."""
+    ll = test_lists[2]
+    ll.pop()
+    assert ll.head.data is 4
+
+
+def test_pop_returns_data(test_lists):
+    """Test pop method returns data of removed node."""
+    returned = test_lists[2].pop()
+    assert returned is 5
+
+
+def test_pop_decreases_length(test_lists):
+    """Test pop decreases length."""
+    ll = test_lists[2]
+    length = ll._length
+    ll.pop()
+    assert ll._length is length - 1
+
+
+def test_pop_list_one(test_lists):
+    """Test pop on list of one."""
+    test_lists[1].pop()
+    assert test_lists[1].head is None
+
+
+def test_pop_decreases_length_to_zero(test_lists):
+    """Test pop decreases length."""
+    ll = test_lists[1]
+    length = ll._length
+    ll.pop()
+    assert ll._length is length - 1
+
+
+def test_cant_pop_on_empty_list(test_lists):
+    """Test pop on an empty list raises error."""
+    with pytest.raises(IndexError, message='Cannot pop from an empty list'):
+        test_lists[0].pop()
