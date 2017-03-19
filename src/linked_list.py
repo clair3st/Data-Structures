@@ -64,3 +64,15 @@ class LinkedList(object):
             if curr.data == val:
                 return curr
             curr = curr.next
+
+    def remove(self, val):
+        """Remove node from list if exists."""
+        curr = self.head
+        if curr and val is self.head.data:
+            self.head = self.head.next
+            self._length -= 1
+        while curr:
+            if (curr.next and curr.next.data == val):
+                curr.next = curr.next.next
+                self._length -= 1
+            curr = curr.next
