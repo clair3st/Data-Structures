@@ -56,3 +56,11 @@ class LinkedList(object):
     def size(self):
         """Return the length of the list."""
         return self._length
+
+    def search(self, val):
+        """Return the node containing val."""
+        curr = self.head
+        while curr:
+            if curr.data == val:
+                return curr
+            curr = curr.next
