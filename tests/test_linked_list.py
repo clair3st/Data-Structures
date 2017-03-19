@@ -139,3 +139,15 @@ def test_size_after_push_and_pop(test_lists):
     ll.push(2)
     ll.pop()
     assert ll.size() is 6
+
+
+def test_search_on_list(test_lists):
+    """Test search returns node."""
+    assert test_lists[2].search(2).data is 2
+
+
+def test_search_on_list_no_value(test_lists):
+    """Test search for a list with no val."""
+    assert test_lists[2].search(9) is None
+
+
