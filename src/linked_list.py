@@ -43,3 +43,12 @@ class LinkedList(object):
         old_head = self.head
         self.head = Node(val, old_head)
         self._length += 1
+
+    def pop(self):
+        """Remove the first value and return it."""
+        if not self.head:
+            raise IndexError('Cannot pop from an empty list')
+        to_return = self.head
+        self.head = self.head.next
+        self._length -= 1
+        return to_return.data
