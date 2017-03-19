@@ -151,3 +151,43 @@ def test_search_on_list_no_value(test_lists):
     assert test_lists[2].search(9) is None
 
 
+def test_remove_on_list(test_lists):
+    """Test remove work for node in list."""
+    test_lists[2].remove(4)
+    assert test_lists[2].size() is 4
+
+
+def test_remove_second_end_of_list(test_lists):
+    """Test remove node second last in list."""
+    test_lists[2].remove(2)
+    assert test_lists[2].size() is 4
+
+
+def test_remove_on_end_of_list(test_lists):
+    """Test remove node last in list."""
+    test_lists[2].remove(1)
+    assert test_lists[2].size() is 4
+
+
+def test_remove_on_list_with_no_node(test_lists):
+    """Test remove node that isnt in list."""
+    test_lists[2].remove(9)
+    assert test_lists[2].size() is 5
+
+
+def test_remove_on_empty_list(test_lists):
+    """Test remove from empty list."""
+    test_lists[0].remove(1)
+    assert test_lists[0].size() is 0
+
+
+def test_remove_on_list_one_list(test_lists):
+    """Test remove from list of 1."""
+    test_lists[1].remove(5)
+    assert test_lists[1].size() is 0
+
+
+def test_remove_on_start_of_list(test_lists):
+    """Test remove start node in list."""
+    test_lists[2].remove(5)
+    assert test_lists[2].size() is 4
