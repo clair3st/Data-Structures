@@ -104,3 +104,38 @@ def test_cant_pop_on_empty_list(test_lists):
     """Test pop on an empty list raises error."""
     with pytest.raises(IndexError, message='Cannot pop from an empty list'):
         test_lists[0].pop()
+
+
+def test_size_function(test_lists):
+    """Test size on empty list."""
+    assert test_lists[0].size() is 0
+
+
+def test_size_function_list(test_lists):
+    """Test size on multi list."""
+    assert test_lists[2].size() is 5
+
+
+def test_size_after_push(test_lists):
+    """Test size after push."""
+    ll = test_lists[0]
+    length = ll.size()
+    ll.push(4)
+    assert ll.size() is length + 1
+
+
+def test_size_after_pop(test_lists):
+    """Test size after pop."""
+    ll = test_lists[2]
+    length = ll.size()
+    ll.pop()
+    assert ll.size() is length - 1
+
+
+def test_size_after_push_and_pop(test_lists):
+    """Test size after push and pop."""
+    ll = test_lists[2]
+    ll.push(4)
+    ll.push(2)
+    ll.pop()
+    assert ll.size() is 6
