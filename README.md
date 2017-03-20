@@ -1,4 +1,4 @@
-# Data-Structures
+# Data-Structures [![Build Status](https://travis-ci.org/clair3st/Data-Structures.svg?branch=master)](https://travis-ci.org/clair3st/Data-Structures)
 Implementation of simple data structures in Python.
 
 _____________
