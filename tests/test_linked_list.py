@@ -191,3 +191,13 @@ def test_remove_on_start_of_list(test_lists):
     """Test remove start node in list."""
     test_lists[2].remove(5)
     assert test_lists[2].size() is 4
+
+
+def test_display_method(test_lists):
+    """Test display method."""
+    assert test_lists[2].display() == '(5, 4, 3, 2, 1)'
+
+
+def test_display_method_one(test_lists):
+    """Test display method."""
+    assert test_lists[1].display() == '(5)'
