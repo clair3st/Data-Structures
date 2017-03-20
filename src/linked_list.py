@@ -76,3 +76,12 @@ class LinkedList(object):
                 curr.next = curr.next.next
                 self._length -= 1
             curr = curr.next
+
+    def display(self):
+        """Display list as a tuple."""
+        curr = self.head
+        display = '('
+        while curr:
+            display += str(curr.data) + ', '
+            curr = curr.next
+        return display[:-2] + ')'
