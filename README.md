@@ -7,7 +7,7 @@ _____________
 
 A singly linked list is made of nodes which contain a reference (or pointer) to the next node in the list and data. They are one of the simpliest data structures and can be used to implement other abstract data types including lists, stacks, queues etc.
 
-[linked list](https://en.wikipedia.org/wiki/Linked_list#/media/File:Singly-linked-list.svg)
+![linked list](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/816px-Singly-linked-list.svg.png)
 
 Advatange of a Linked list is a dynamic data structure which can grow while program is running (unlike arrays). Insertion and deletion methods are easy to implement, and it is a simple building block for other more complex data structures. 
 
