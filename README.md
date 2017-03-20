@@ -1,4 +1,4 @@
-# Data-Structures [![Build Status](https://travis-ci.org/clair3st/Data-Structures.svg?branch=master)](https://travis-ci.org/clair3st/Data-Structures)
+# Data-Structures [![Build Status](https://travis-ci.org/clair3st/Data-Structures.svg?branch=master)](https://travis-ci.org/clair3st/Data-Structures) [![Coverage Status](https://coveralls.io/repos/github/clair3st/Data-Structures/badge.svg?branch=master)](https://coveralls.io/github/clair3st/Data-Structures?branch=master)
 Implementation of simple data structures in Python.
 
 _____________
