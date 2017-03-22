@@ -5,6 +5,7 @@ from linked_list import LinkedList
 
 class Stack(object):
     """Implementation of Stack.
+
     public methods:
 
     push(value) - Adds a value to the stack.
@@ -14,7 +15,7 @@ class Stack(object):
 
     """
 
-    def __init__(self, data):
+    def __init__(self, data=None):
         """Initialization."""
         self._stack = LinkedList(data)
 
@@ -25,4 +26,3 @@ class Stack(object):
     def pop(self):
         """Remove item off the stack."""
         self._stack.pop()
-        
