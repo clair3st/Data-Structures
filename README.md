@@ -34,3 +34,28 @@ The list implementation supports the following methods:
 | **display()** | return a unicode string representing the list as if it were a Python tuple literal: “(12, ‘sam’, 37, ‘tango’)”  |    O(n)            |
  
 ___________________
+
+## Stack
+
+A stack is a collection of nodes with operations occuring at one end only. It behaves like a real-world stack or pile of books - books can only be taken from  or placed on the top of the pile in a First In Last Out (LIFO) operations.
+
+![stack](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Data_stack.svg/440px-Data_stack.svg.png)
+
+Stacks are handy for remembering state eg undo and redo
+
+- **Module:** [stack.py](src/stack.py)
+
+- **Tests:** [test_stack.py](tests/test_stack.py)
+
+- **Resources:**
+https://codefellows.github.io/sea-python-401d5/assignments/stack.html
+https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+https://en.wikibooks.org/wiki/Data_Structures/Stacks_and_Queues
+
+
+The Stack implementation supports the following methods:
+
+| Method        | Description   | Time Complexity  |
+| ------------- |-------------| :---------------:|
+| **push(val)**   | insert the value ‘val’ at the head of the stack. | O(1)           |
+| **pop()**      | removes the first value off the head of the stack and return it      |   O(1)        |
