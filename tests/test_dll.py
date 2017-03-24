@@ -57,3 +57,10 @@ def test_push_updates_head(test_lists):
     """Test push updates head."""
     test_lists[1].push(6)
     assert test_lists[1].head.data is 6
+
+
+def test_push_points_back(test_lists):
+    """Test old head points to new with prev after a push."""
+    old_head = test_lists[1].head
+    test_lists[1].push(6)
+    assert test_lists[1].head is old_head.prev
