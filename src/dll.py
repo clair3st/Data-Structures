@@ -27,3 +27,18 @@ class DoubleLinkedList(object):
         """Initialize list."""
         self.head = head
         self.tail = tail
+        self._length = 0
+        try:
+            for val in data:
+                self.push(val)
+        except TypeError:
+            if data:
+                self.push(data)
+
+    def push(self, val):
+        """Add val to the head of the list."""
+        old_head = self.head
+        self.head = Node(val, old_head)
+        if not self.tail:
+            self.tail = self.head
+        self._length += 1
