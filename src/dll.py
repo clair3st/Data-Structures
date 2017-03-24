@@ -39,6 +39,8 @@ class DoubleLinkedList(object):
         """Add val to the head of the list."""
         old_head = self.head
         self.head = Node(val, old_head)
+        if old_head:
+            old_head.prev = self.head
         if not self.tail:
             self.tail = self.head
         self._length += 1
