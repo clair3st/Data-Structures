@@ -48,6 +48,6 @@ class DoubleLinkedList(object):
     def pop(self):
         """Remove the val from the head of the list."""
         to_return = self.head
-        self.head, self.head.next.prev = self.head.next, None
+        self.head.next.prev, self.head = None, self.head.next
         self._length -= 1
         return to_return
