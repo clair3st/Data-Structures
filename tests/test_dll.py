@@ -64,3 +64,17 @@ def test_push_points_back(test_lists):
     old_head = test_lists[1].head
     test_lists[1].push(6)
     assert test_lists[1].head is old_head.prev
+
+
+def test_pop_reduces_length(test_lists):
+    """Test pop reduces lists."""
+    old_length = test_lists[2]._length
+    test_lists[2].pop()
+    assert test_lists[2]._length is old_length - 1
+
+
+def test_pop_removes_head(test_lists):
+    """Test pop reduces lists."""
+    new_head = test_lists[2].head.next.data
+    test_lists[2].pop()
+    assert test_lists[2].head.data is new_head
