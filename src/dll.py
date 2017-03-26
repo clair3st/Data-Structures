@@ -44,3 +44,10 @@ class DoubleLinkedList(object):
         if not self.tail:
             self.tail = self.head
         self._length += 1
+
+    def pop(self):
+        """Remove the val from the head of the list."""
+        to_return = self.head
+        self.head, self.head.next.prev = self.head.next, None
+        self._length -= 1
+        return to_return
