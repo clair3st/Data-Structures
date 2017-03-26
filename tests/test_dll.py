@@ -74,7 +74,25 @@ def test_pop_reduces_length(test_lists):
 
 
 def test_pop_removes_head(test_lists):
-    """Test pop reduces lists."""
+    """Test pop removes head."""
     new_head = test_lists[2].head.next.data
     test_lists[2].pop()
     assert test_lists[2].head.data is new_head
+
+
+def test_pop_removes_prev_pointer(test_lists):
+    """Test pop changes prev pointer."""
+    test_lists[2].pop()
+    assert test_lists[2].head.prev is None
+
+
+def test_pop_list_one(test_lists):
+    """Test pop decreases length."""
+    test_lists[1].pop()
+    assert test_lists[1]._length is 0
+
+
+def test_cant_pop_on_empty_list(test_lists):
+    """Test pop on an empty list raises error."""
+    with pytest.raises(IndexError, message='Cannot pop from an empty list'):
+        test_lists[0].pop()
