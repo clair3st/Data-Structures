@@ -48,6 +48,11 @@ class DoubleLinkedList(object):
     def pop(self):
         """Remove the val from the head of the list."""
         to_return = self.head
-        self.head.next.prev, self.head = None, self.head.next
+        if self._length < 1:
+            raise IndexError('Cannot pop from an empty list.')
+        elif self._length is 1:
+            self.head, self.tail = None, None
+        else:
+            self.head.next.prev, self.head = None, self.head.next
         self._length -= 1
         return to_return
