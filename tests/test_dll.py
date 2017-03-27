@@ -96,3 +96,22 @@ def test_cant_pop_on_empty_list(test_lists):
     """Test pop on an empty list raises error."""
     with pytest.raises(IndexError, message='Cannot pop from an empty list'):
         test_lists[0].pop()
+
+
+def test_append_increases_length(test_lists):
+    """Test append increases length."""
+    test_lists[0].append(2)
+    assert test_lists[0]._length is 1
+
+
+def test_append_updates_tail(test_lists):
+    """Test append updates tail."""
+    test_lists[1].append(6)
+    assert test_lists[1].tail.data is 6
+
+
+def test_append_points_back(test_lists):
+    """Test old tail points to new with prev after a append."""
+    old_tail = test_lists[1].tail
+    test_lists[1].append(6)
+    assert test_lists[1].tail is old_tail.prev
