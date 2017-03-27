@@ -56,3 +56,13 @@ class DoubleLinkedList(object):
             self.head.next.prev, self.head = None, self.head.next
         self._length -= 1
         return to_return
+
+    def append(self, val):
+        """Add val to the tail of the list."""
+        old_tail = self.tail
+        self.tail = Node(val, None, old_tail)
+        if old_tail:
+            old_tail.prev = self.tail
+        if not self.head:
+            self.head = self.tail
+        self._length += 1
