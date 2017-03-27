@@ -115,3 +115,10 @@ def test_append_points_back(test_lists):
     old_tail = test_lists[1].tail
     test_lists[1].append(6)
     assert test_lists[1].tail is old_tail.prev
+
+
+def test_append_on_empty_list(test_lists):
+    """Test append updates tail."""
+    test_lists[0].append(6)
+    assert test_lists[0].tail.data is 6
+    assert test_lists[0].head.data is 6
