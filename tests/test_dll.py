@@ -122,3 +122,28 @@ def test_append_on_empty_list(test_lists):
     test_lists[0].append(6)
     assert test_lists[0].tail.data is 6
     assert test_lists[0].head.data is 6
+
+
+def test_append_next_pointer_is_none(test_lists):
+    """Test append next pointer is none."""
+    test_lists[2].append(6)
+    assert test_lists[2].tail.next is None
+
+
+def test_pop_sequence(test_lists):
+    """Test that entire sequence is returned by successive pops."""
+    l = []
+    while True:
+        try:
+            popped_data = test_lists[2].pop()
+            l.append(popped_data.data)
+        except IndexError:
+            break
+    assert l == [5, 4, 3, 2, 1]
+
+
+def test_push_pop(test_lists):
+    """Push data and pop it off."""
+    test_lists[1].push(9)
+    popped_data = test_lists[1].pop()
+    assert popped_data.data is 9
