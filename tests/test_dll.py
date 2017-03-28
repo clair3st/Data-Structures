@@ -179,3 +179,22 @@ def test_cant_shift_on_empty_list(test_lists):
     """Test shift on an empty list raises error."""
     with pytest.raises(IndexError, message='Cannot shift from an empty list'):
         test_lists[0].shift()
+
+
+def test_shift_sequence(test_lists):
+    """Test that entire sequence is returned by successive shifts."""
+    l = []
+    while True:
+        try:
+            shifted_data = test_lists[2].shift()
+            l.append(shifted_data.data)
+        except IndexError:
+            break
+    assert l == [1, 2, 3, 4, 5]
+
+
+def test_shift_append(test_lists):
+    """Append data and shift it off."""
+    test_lists[1].append(9)
+    shifted_data = test_lists[1].shift()
+    assert shifted_data.data is 9
