@@ -198,3 +198,85 @@ def test_shift_append(test_lists):
     test_lists[1].append(9)
     shifted_data = test_lists[1].shift()
     assert shifted_data.data is 9
+
+
+def test_remove_middle_of_list(test_lists):
+    """Test remove from middle of list."""
+    test_lists[2].remove(3)
+    assert test_lists[2]._repr() == [5, 4, 2, 1]
+
+
+def test_remove_head_of_list(test_lists):
+    """Test remove from head of list."""
+    test_lists[2].remove(5)
+    assert test_lists[2]._repr() == [4, 3, 2, 1]
+
+
+def test_remove_tail_of_list(test_lists):
+    """Test remove from tail of list."""
+    test_lists[2].remove(1)
+    assert test_lists[2]._repr() == [5, 4, 3, 2]
+
+
+def test_remove_middle_decreases_length(test_lists):
+    """Test remove from middle of list decreases length."""
+    test_lists[2].remove(3)
+    assert test_lists[2]._length is 4
+
+
+def test_remove_head_decreases_length(test_lists):
+    """Test remove from head of list decreases length."""
+    test_lists[2].remove(5)
+    assert test_lists[2]._length is 4
+
+
+def test_remove_tail_decreases_length(test_lists):
+    """Test remove from tail of list decreases length."""
+    test_lists[2].remove(1)
+    assert test_lists[2]._length is 4
+
+
+def test_remove_middle_updates_pointers(test_lists):
+    """Test remove from middle of list updates pointers."""
+    test_lists[2].remove(3)
+    assert test_lists[2].head.next.next.data is 2
+
+
+def test_remove_head_pointers(test_lists):
+    """Test remove from head of list changes pointers."""
+    test_lists[2].remove(5)
+    assert test_lists[2].head.data is 4
+    assert test_lists[2].head.prev is None
+
+
+def test_remove_tail_pointers(test_lists):
+    """Test remove from tail of list changes pointers."""
+    test_lists[2].remove(1)
+    assert test_lists[2].tail.data is 2
+    assert test_lists[2].tail.next is None
+
+
+def test_remove_list_of_one_length(test_lists):
+    """Test remove on list of one."""
+    test_lists[1].remove(3)
+    assert test_lists[1]._length is 0
+
+
+def test_remove_list_of_one(test_lists):
+    """Test remove on list of one."""
+    test_lists[1].remove(3)
+    assert test_lists[1].head is None
+    assert test_lists[1].tail is None
+
+
+def test_remove_list_of_none(test_lists):
+    """Test remove on list of none."""
+    test_lists[0].remove(3)
+    assert test_lists[0].head is None
+    assert test_lists[0].tail is None
+
+
+def test_remove_of_list_false(test_lists):
+    """Test remove from middle of list."""
+    test_lists[2].remove(9)
+    assert test_lists[2]._repr() == [5, 4, 3, 2, 1]
