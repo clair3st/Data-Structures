@@ -78,3 +78,28 @@ class DoubleLinkedList(object):
             self.tail.prev.next, self.tail = None, self.tail.prev
         self._length -= 1
         return to_return
+
+    def remove(self, val):
+        """Remove first occurance of val from list."""
+        curr = self.head
+        while curr:
+            if curr.data is val:
+                if curr is self.head:
+                    self.head, curr.next.prev = curr.next, None
+                if curr is self.tail:
+                    self.tail, curr.prev.next = curr.prev, None
+                elif curr is not (self.head or self.tail):
+                    curr.next.prev, curr.prev.next = curr.prev, curr.next
+                self._length -= 1
+            curr = curr.next
+
+    def _repr(self):
+        """Return list representation of dll."""
+        l = []
+        while True:
+            try:
+                popped_data = self.pop()
+                l.append(popped_data.data)
+            except IndexError:
+                break
+        return l
