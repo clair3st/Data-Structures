@@ -84,12 +84,14 @@ class DoubleLinkedList(object):
         curr = self.head
         while curr:
             if curr.data is val:
-                if curr is self.head:
-                    self.head, curr.next.prev = curr.next, None
-                if curr is self.tail:
-                    self.tail, curr.prev.next = curr.prev, None
-                elif curr is not (self.head or self.tail):
+                if self._length is 1:
+                    self.head, self.tail = None, None
+                elif curr is not self.head and curr is not self.tail:
                     curr.next.prev, curr.prev.next = curr.prev, curr.next
+                elif curr is self.head:
+                    self.head, curr.next.prev = curr.next, None
+                elif curr is self.tail:
+                    self.tail, curr.prev.next = curr.prev, None
                 self._length -= 1
             curr = curr.next
 
