@@ -66,3 +66,15 @@ class DoubleLinkedList(object):
         if not self.head:
             self.head = self.tail
         self._length += 1
+
+    def shift(self):
+        """Remove the val from the tail of the list."""
+        to_return = self.tail
+        if self._length < 1:
+            raise IndexError('Cannot shift from an empty list.')
+        elif self._length is 1:
+            self.head, self.tail = None, None
+        else:
+            self.tail.next.prev, self.tail = None, self.tail.next
+        self._length -= 1
+        return to_return
