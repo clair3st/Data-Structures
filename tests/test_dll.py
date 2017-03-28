@@ -147,3 +147,35 @@ def test_push_pop(test_lists):
     test_lists[1].push(9)
     popped_data = test_lists[1].pop()
     assert popped_data.data is 9
+
+
+def test_shift_reduces_length(test_lists):
+    """Test shift reduces lists."""
+    old_length = test_lists[2]._length
+    test_lists[2].shift()
+    assert test_lists[2]._length is old_length - 1
+
+
+def test_shift_removes_tail(test_lists):
+    """Test shift removes tail."""
+    new_tail = test_lists[2].tail.prev.data
+    test_lists[2].shift()
+    assert test_lists[2].tail.data is new_tail
+
+
+def test_shift_removes_next_pointer(test_lists):
+    """Test shift changes prev pointer."""
+    test_lists[2].shift()
+    assert test_lists[2].tail.next is None
+
+
+def test_shift_list_one(test_lists):
+    """Test shift decreases length."""
+    test_lists[1].shift()
+    assert test_lists[1]._length is 0
+
+
+def test_cant_shift_on_empty_list(test_lists):
+    """Test shift on an empty list raises error."""
+    with pytest.raises(IndexError, message='Cannot shift from an empty list'):
+        test_lists[0].shift()
