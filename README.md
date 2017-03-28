@@ -59,3 +59,35 @@ The Stack implementation supports the following methods:
 | ------------- |-------------| :---------------:|
 | **push(val)**   | insert the value ‘val’ at the head of the stack. | O(1)           |
 | **pop()**      | removes the first value off the head of the stack and return it      |   O(1)        |
+
+_____________
+
+## Double Linked List
+
+A doubly linked list is made of nodes which contain a reference (or pointer) to the next node in the list, and the previous node in the list plus data. 
+
+![doubly linked list](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png)
+
+Advatange of a doubly linked list is two directional pointers allow traversal of the list in either direction.
+
+The disadvantages of using a doubly linked list is they use more memory than a singly linked list and adding or removing a node requires changing more pointers.
+
+- **Module:** [dll.py](src/dll.py)
+
+- **Tests:** [test_dll.py](tests/test_dll.py)
+
+- **Resources:**
+https://codefellows.github.io/sea-python-401d5/assignments/doubly_linked_list.html
+https://codefellows.github.io/sea-python-401d5/lectures/double_linked_list.html
+https://en.wikipedia.org/wiki/Doubly_linked_list
+
+
+The list implementation supports the following methods:
+
+| Method        | Description   | Time Complexity  |
+| ------------- |-------------| :---------------:|
+| **push(val)**   | will insert the value ‘val’ at the head of the list. | O(1)           |
+| **pop()**      | will pop the first value off the head of the list and return it     |   O(1)        |
+| **append(val)**   | will insert the value ‘val’ at the tail of the list. | O(1)           |
+| **shift()**      | will pop the first value off the tail of the list and return it     |   O(1)        |
+| **remove(val)** | will remove the first instance of ‘val’ found in the list, starting from the head. If ‘val’ is not present, it will raise an appropriate Python exception.   |    O(n)            |
