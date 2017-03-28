@@ -75,6 +75,6 @@ class DoubleLinkedList(object):
         elif self._length is 1:
             self.head, self.tail = None, None
         else:
-            self.tail.next.prev, self.tail = None, self.tail.next
+            self.tail.prev.next, self.tail = None, self.tail.prev
         self._length -= 1
         return to_return
