@@ -19,3 +19,7 @@ class Queue(object):
     def __init__(self, data=None):
         """Initialize queue data structure."""
         self._container = DoubleLinkedList(data)
+
+    def enqueue(self, val):
+        """Add a value to the queue."""
+        self._container.append(val)
