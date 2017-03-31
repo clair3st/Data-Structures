@@ -101,7 +101,7 @@ A queue is an ordered collection of nodes with operations only allowing the addi
 
 ![Queue](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/600px-Data_Queue.svg.png)
 
-Queues are used in computer science exactly like they are in the physical world, that is, they are a buffer and store data until it will later get processed. 
+Queues are used in computer science exactly like they are in the physical world, that is, they are a buffer and store data until it will later get processed. They have limited access (only insert at the tail) and they can always be added to (the length is unlimited).
 
 - **Module:** [a_queue.py](src/a_queue.py)
 
