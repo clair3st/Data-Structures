@@ -31,3 +31,7 @@ class Queue(object):
     def peek(self):
         """Return the next value in the queue without dequing it."""
         return self._container.head.data
+
+    def size(self):
+        """Return the size of the queue."""
+        return self._container._length
