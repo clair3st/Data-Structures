@@ -35,3 +35,21 @@ def test_enque_adds_to_size(test_queues):
     """Test enqueue adds size."""
     test_queues[2].enqueue(6)
     assert test_queues[2]._container._length is 6
+
+
+def test_dequeue_removes_data(test_queues):
+    """Test dequeue removes data."""
+    test_queues[1].dequeue()
+    assert test_queues[1]._container.head is None
+
+
+def test_removes_data_from_head_and_updates_pointer(test_queues):
+    """Test deque updates pointers."""
+    test_queues[2].dequeue()
+    assert test_queues[1]._container.head.data is 3
+
+
+def test_deque_removes_from_size(test_queues):
+    """Test enqueue adds size."""
+    test_queues[2].dequeue()
+    assert test_queues[2]._container._length is 4
