@@ -91,3 +91,33 @@ The list implementation supports the following methods:
 | **append(val)**   | will insert the value ‘val’ at the tail of the list. | O(1)           |
 | **shift()**      | will pop the first value off the tail of the list and return it     |   O(1)        |
 | **remove(val)** | will remove the first instance of ‘val’ found in the list, starting from the head. If ‘val’ is not present, it will raise an appropriate Python exception.   |    O(n)            |
+
+_____________
+
+
+## Queue
+
+A queue is an ordered collection of nodes with operations only allowing the addition of new nodes to the tail and removing nodes from the head of the collection. The Queue is called a First In First Out (FIFO) data structure for this reason. 
+
+![Queue](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/600px-Data_Queue.svg.png)
+
+Queues are used in computer science exactly like they are in the physical world, that is, they are a buffer and store data until it will later get processed. 
+
+- **Module:** [a_queue.py](src/a_queue.py)
+
+- **Tests:** [test_queue.py](tests/test_queue.py)
+
+- **Resources:**
+https://codefellows.github.io/sea-python-401d5/assignments/queue.html
+https://codefellows.github.io/sea-python-401d5/lectures/queue.html
+http://www.princeton.edu/~achaney/tmve/wiki100k/docs/Queue_(data_structure).html
+
+
+The Queue implementation supports the following methods:
+
+| Method        | Description   | Time Complexity  |
+| ------------- |-------------| :---------------:|
+| **enqueue(value)**   | adds value to the queue | O(1)           |
+| **dequeue()**      | removes the correct item from the queue and returns its value (should raise an error if the queue is empty)  |   O(1)        |
+| **peek()**   | returns the next value in the queue without dequeueing it. If the queue is empty, returns None | O(1)           |
+| **size()**      | return the size of the queue. Should return 0 if the queue is empty     |   O(1)        |
