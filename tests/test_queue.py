@@ -77,3 +77,18 @@ def test_dequeue_on_empty_list(test_queues):
     """Test dequeue on an empty list."""
     with pytest.raises(IndexError):
         test_queues[0].dequeue()
+
+
+def test_size_on_empty_queue(test_queues):
+    """Test size method on empty."""
+    assert test_queues[0].size() is 0
+
+
+def test_size_on_queue_of_one(test_queues):
+    """Test size method on a queue of one."""
+    assert test_queues[1].size() is 1
+
+
+def test_size_on_longer_queue(test_queues):
+    """Test size method on empty."""
+    assert test_queues[2].size() is 5
