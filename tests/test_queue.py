@@ -53,3 +53,27 @@ def test_deque_removes_from_size(test_queues):
     """Test enqueue adds size."""
     test_queues[2].dequeue()
     assert test_queues[2]._container._length is 4
+
+
+def test_peek_returns_head(test_queues):
+    """Test peek returns head of list."""
+    assert test_queues[2].peek() is 5
+
+
+def test_peek_on_empty(test_queues):
+    """Test peek returns None when empty."""
+    assert test_queues[0].peek() is None
+
+
+def test_dequeue_to_get_entire_queue(test_queues):
+    """Test successive dequeues returns the queue."""
+    q = []
+    while test_queues[2]._container._length > 0:
+        q.append(test_queues[2].dequeue().data)
+    assert q == [5, 4, 3, 2, 1]
+
+
+def test_dequeue_on_empty_list(test_queues):
+    """Test dequeue on an empty list."""
+    with pytest.raises(IndexError):
+        test_queues[0].dequeue()
