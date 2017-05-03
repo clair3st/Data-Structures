@@ -16,14 +16,38 @@ def test_deque():
 
 def test_init_deque_has_data(test_deque):
     """Test deque has data."""
-    assert test_deque[2].data
+    assert test_deque[2]._container
 
 
 def test_init_deque_has_head(test_deque):
     """Test deque has head."""
-    assert test_deque[2].head.data is 5
+    assert test_deque[2]._container.head.data is 5
 
 
 def test_init_deque_has_tail(test_deque):
     """Test deque has tail."""
-    assert test_deque[2].tail.data is 1
+    assert test_deque[2]._container.tail.data is 1
+
+
+def test_append_adds_data(test_deque):
+    """Test append adds data to the tail."""
+    test_deque[0].append(3)
+    assert test_deque[0]._container.tail.data is 3
+
+
+def test_append_adds_data_to_tail(test_deque):
+    """Test append adds to the tail."""
+    test_deque[1].append(2)
+    assert test_deque[1]._container.tail.data is 2
+
+
+def test_append_adds_data_to_tail_and_points_to_prev(test_deque):
+    """Test append adds to the tail and point to prev tail."""
+    test_deque[1].append(2)
+    assert test_deque[1]._container.tail.prev.data is 3
+
+
+def test_enque_adds_to_size(test_deque):
+    """Test append adds size."""
+    test_deque[2].append(6)
+    assert test_deque[2]._container._length is 6
