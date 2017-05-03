@@ -23,13 +23,11 @@ class Deque(object):
 
     def __init__(self, data=None):
         """Initialize deque."""
-        self.data = DoubleLinkedList(data)
-        self.head = self.data.head
-        self.tail = self.data.tail
+        self._container = DoubleLinkedList(data)
 
     def append(self, val):
         """Add value to the end of the deque."""
-        self.data.append(val)
+        self._container.append(val)
 
     def appendleft(self, val):
         """Add a value to the front of the deque."""
