@@ -31,7 +31,7 @@ class Deque(object):
 
     def appendleft(self, val):
         """Add a value to the front of the deque."""
-        pass
+        self._container.push(val)
 
     def pop(self):
         """Remove a value from the end of the deque and returns it."""
