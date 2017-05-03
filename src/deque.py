@@ -26,11 +26,10 @@ class Deque(object):
         self.data = DoubleLinkedList(data)
         self.head = self.data.head
         self.tail = self.data.tail
-        self._length = self.data._length
 
     def append(self, val):
         """Add value to the end of the deque."""
-        pass
+        self.data.append(val)
 
     def appendleft(self, val):
         """Add a value to the front of the deque."""
