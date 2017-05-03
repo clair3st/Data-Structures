@@ -51,3 +51,22 @@ def test_enque_adds_to_size(test_deque):
     """Test append adds size."""
     test_deque[2].append(6)
     assert test_deque[2]._container._length is 6
+
+
+def test_appendleft_increases_length(test_deque):
+    """Test appendleft increases length."""
+    test_deque[0].appendleft(2)
+    assert test_deque[0]._container._length is 1
+
+
+def test_appendleft_updates_head(test_deque):
+    """Test appendleft updates head."""
+    test_deque[1].appendleft(6)
+    assert test_deque[1]._container.head.data is 6
+
+
+def test_appendleft_points_back(test_deque):
+    """Test old head points to new with prev after a appendleft."""
+    old_head = test_deque[1]._container.head
+    test_deque[1].appendleft(6)
+    assert test_deque[1]._container.head is old_head.prev
