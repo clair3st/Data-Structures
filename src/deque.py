@@ -35,7 +35,7 @@ class Deque(object):
 
     def pop(self):
         """Remove a value from the end of the deque and returns it."""
-        pass
+        return self._container.shift()
 
     def popleft(self):
         """Remove a value from the front of the deque and returns it."""
