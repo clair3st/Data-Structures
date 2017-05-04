@@ -70,3 +70,54 @@ def test_appendleft_points_back(test_deque):
     old_head = test_deque[1]._container.head
     test_deque[1].appendleft(6)
     assert test_deque[1]._container.head is old_head.prev
+
+
+def test_pop_reduces_length(test_deque):
+    """Test pop reduces lists."""
+    old_length = test_deque[2]._container._length
+    test_deque[2].pop()
+    assert test_deque[2]._container._length is old_length - 1
+
+
+def test_pop_removes_tail(test_deque):
+    """Test pop removes tail."""
+    new_tail = test_deque[2]._container.tail.prev.data
+    test_deque[2].pop()
+    assert test_deque[2]._container.tail.data is new_tail
+
+
+def test_pop_removes_next_pointer(test_deque):
+    """Test pop changes prev pointer."""
+    test_deque[2].pop()
+    assert test_deque[2]._container.tail.next is None
+
+
+def test_pop_list_one(test_deque):
+    """Test pop decreases length."""
+    test_deque[1].pop()
+    assert test_deque[1]._container._length is 0
+
+
+def test_cant_pop_on_empty_list(test_deque):
+    """Test pop on an empty list raises error."""
+    with pytest.raises(IndexError, message='Cannot pop from an empty list'):
+        test_deque[0].pop()
+
+
+def test_pop_sequence(test_deque):
+    """Test that entire sequence is returned by successive pops."""
+    l = []
+    while True:
+        try:
+            poped_data = test_deque[2].pop()
+            l.append(poped_data.data)
+        except IndexError:
+            break
+    assert l == [1, 2, 3, 4, 5]
+
+
+def test_pop_append(test_deque):
+    """Append data and pop it off."""
+    test_deque[1].append(9)
+    poped_data = test_deque[1].pop()
+    assert poped_data.data is 9
