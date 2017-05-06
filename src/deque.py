@@ -45,9 +45,9 @@ class Deque(object):
         """Return the next value that would be returned by pop."""
         return self._container.head.data
 
-    def peekleft():
+    def peekleft(self):
         """Return the next value from the front of the deque."""
-        pass
+        return self._container.tail.data
 
     def size():
         """Return the count of items in the queue."""
