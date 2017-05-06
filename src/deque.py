@@ -39,11 +39,11 @@ class Deque(object):
 
     def popleft(self):
         """Remove a value from the front of the deque and returns it."""
-        pass
+        return self._container.pop()
 
     def peek(self):
         """Return the next value that would be returned by pop."""
-        pass
+        return self._container.head.data
 
     def peekleft():
         """Return the next value from the front of the deque."""
