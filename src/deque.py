@@ -49,6 +49,6 @@ class Deque(object):
         """Return the next value from the front of the deque."""
         return self._container.tail.data
 
-    def size():
+    def size(self):
         """Return the count of items in the queue."""
-        pass
+        return self._container._length
