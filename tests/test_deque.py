@@ -121,3 +121,27 @@ def test_pop_append(test_deque):
     test_deque[1].append(9)
     poped_data = test_deque[1].pop()
     assert poped_data.data is 9
+
+
+def test_size_method_append(test_deque):
+    """Append and test size."""
+    test_deque[0].append(2)
+    assert test_deque[0].size() == 1
+
+
+def test_size_method_appendleft(test_deque):
+    """Appendleft and test size."""
+    test_deque[0].appendleft(2)
+    assert test_deque[0].size() == 1
+
+
+def test_size_method_pop(test_deque):
+    """Pop and test size."""
+    test_deque[1].pop()
+    assert test_deque[0].size() == 0
+
+
+def test_size_method_popleft(test_deque):
+    """Pop and test size."""
+    test_deque[1].popleft()
+    assert test_deque[0].size() == 0
