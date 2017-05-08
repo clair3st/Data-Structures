@@ -123,6 +123,57 @@ def test_pop_append(test_deque):
     assert poped_data.data is 9
 
 
+def test_popleft_reduces_length(test_deque):
+    """Test popleft reduces lists."""
+    old_length = test_deque[2]._container._length
+    test_deque[2].popleft()
+    assert test_deque[2]._container._length is old_length - 1
+
+
+def test_popleft_removes_tail(test_deque):
+    """Test popleft removes head."""
+    new_head = test_deque[2]._container.head.next.data
+    test_deque[2].popleft()
+    assert test_deque[2]._container.head.data is new_head
+
+
+def test_popleft_removes_next_pointer(test_deque):
+    """Test popleft changes prev pointer."""
+    test_deque[2].popleft()
+    assert test_deque[2]._container.head.prev is None
+
+
+def test_popleft_list_one(test_deque):
+    """Test popleft decreases length."""
+    test_deque[1].popleft()
+    assert test_deque[1]._container._length is 0
+
+
+def test_cant_popleft_on_empty_list(test_deque):
+    """Test popleft on an empty list raises error."""
+    with pytest.raises(IndexError, message='Cannot popleft from an empty list'):
+        test_deque[0].popleft()
+
+
+def test_popleft_sequence(test_deque):
+    """Test that entire sequence is returned by successive poplefts."""
+    l = []
+    while True:
+        try:
+            poplefted_data = test_deque[2].popleft()
+            l.append(poplefted_data.data)
+        except IndexError:
+            break
+    assert l == [5, 4, 3, 2, 1]
+
+
+def test_popleft_appendleft(test_deque):
+    """Append data and popleft it off."""
+    test_deque[1].appendleft(9)
+    poplefted_data = test_deque[1].popleft()
+    assert poplefted_data.data is 9
+
+
 def test_size_method_append(test_deque):
     """Append and test size."""
     test_deque[0].append(2)
