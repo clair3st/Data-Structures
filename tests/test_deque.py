@@ -213,6 +213,12 @@ def test_peek_size(test_deque):
     assert size == test_deque[2].size()
 
 
+def test_peek_empty(test_deque):
+    """Test peek method."""
+    peek = test_deque[0].peek()
+    assert peek is None
+
+
 def test_peekleft(test_deque):
     """Test peekleft method."""
     peekleft = test_deque[2].peekleft()
@@ -224,3 +230,9 @@ def test_peekleft_size(test_deque):
     size = test_deque[2].size()
     test_deque[2].peekleft()
     assert size == test_deque[2].size()
+
+
+def test_peekleft_empty(test_deque):
+    """Test peekleft method."""
+    peekleft = test_deque[0].peekleft()
+    assert peekleft is None
