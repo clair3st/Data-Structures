@@ -151,7 +151,9 @@ def test_popleft_list_one(test_deque):
 
 def test_cant_popleft_on_empty_list(test_deque):
     """Test popleft on an empty list raises error."""
-    with pytest.raises(IndexError, message='Cannot popleft from an empty list'):
+    with pytest.raises(
+            IndexError, message='Cannot popleft from an empty list'
+    ):
         test_deque[0].popleft()
 
 
@@ -196,3 +198,16 @@ def test_size_method_popleft(test_deque):
     """Pop and test size."""
     test_deque[1].popleft()
     assert test_deque[0].size() == 0
+
+
+def test_peek(test_deque):
+    """Test peek method."""
+    peek = test_deque[2].peek()
+    assert peek == test_deque[2]._container.head.data
+
+
+def test_peek_size(test_deque):
+    """Test peek method does not change size."""
+    size = test_deque[2].size()
+    test_deque[2].peek()
+    assert size == test_deque[2].size()
