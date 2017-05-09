@@ -151,5 +151,4 @@ The Deque implementation supports the following methods:
 | **popleft()**      | removes a value from the front of the deque and returns it (raises an exception if the deque is empty)     |   O(1)        |
 | **peek()**      | returns the next value that would be returned by pop but leaves the value in the deque (returns None if the deque is empty)   |   O(1)        |
 | **peekleft()**      | returns the next value that would be returned by popleft but leaves the value in the deque (returns None if the deque is empty)     |   O(1)        |
-| **size()**      | returns the count of items in the queue (returns 0 if the queue is empty)
-     |   O(1)        |
+| **size()**      | returns the count of items in the queue (returns 0 if the queue is empty) |   O(1)        |
