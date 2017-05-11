@@ -10,3 +10,25 @@ class Node(object):
         self.right = right
         self.parent = parent
         self.data = data
+
+
+class Binheap(object):
+    """Python implementation of binary heap.
+
+    supports the following method
+
+    push(): puts a new value into the heap, maintaining the heap property.
+    pop(): removes the top value in the heap, maintaining the heap property.
+    """
+
+    def __init__(self, data=None):
+        """Initialize bin heap."""
+        self.head = None
+
+    def push(self):
+        """Put a new value into the heap."""
+        pass
+
+    def pop(self):
+        """Remove the top value of the heap."""
+        pass
