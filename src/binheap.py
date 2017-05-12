@@ -4,7 +4,7 @@
 class Node(object):
     """Node object of binary heap."""
 
-    def __init__(self, parent, data=None, left=None, right=None):
+    def __init__(self, data=None, parent=None, left=None, right=None):
         """Initialize a node."""
         self.left = left
         self.right = right
@@ -25,9 +25,21 @@ class Binheap(object):
         """Initialize bin heap."""
         self.head = None
 
-    def push(self):
+    def push(self, val):
         """Put a new value into the heap."""
-        pass
+        if not self.head:
+            self.head = Node(val)
+        else:
+            curr = self.head
+            while True:
+                if curr.left and curr.right:
+                    curr = curr.left
+                elif curr.left:
+                    curr.right = Node(val)
+                    break
+                else:
+                    curr.left = Node(val)
+                    break
 
     def pop(self):
         """Remove the top value of the heap."""
