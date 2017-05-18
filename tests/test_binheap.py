@@ -21,5 +21,4 @@ def test_push_val_to_left(heap):
     """Test push second val adds to the tree."""
     heap.push(3)
     heap.push(2)
-    assert heap.container == [None, 3, 2]
-
+    assert heap.container == [None, 2, 3]
