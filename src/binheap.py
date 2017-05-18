@@ -19,7 +19,7 @@ class Binheap(object):
         self.container.append(val)
         size = len(self.container) - 1
         while size // 2 > 0:
-            if self.container[size] < self.container[size // 2]:
+            if self.container[size] > self.container[size // 2]:
                 tmp = self.container[size // 2]
                 self.container[size // 2] = self.container[size]
                 self.container[size] = tmp
