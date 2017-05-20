@@ -13,6 +13,9 @@ class Binheap(object):
     def __init__(self, data=None):
         """Initialize bin heap."""
         self.container = [None]
+        if data:
+            for val in data:
+                self.push(val)
 
     def push(self, val):
         """Put a new value into the heap."""
