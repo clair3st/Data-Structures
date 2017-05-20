@@ -31,3 +31,9 @@ def test_push_val_large(empty_heap):
     empty_heap.push(1)
     empty_heap.push(16)
     assert empty_heap.container == [None, 16, 3, 1, 2]
+
+
+def test_push_on_empty(empty_heap):
+    """Test push on an empty list."""
+    empty_heap.push(1)
+    assert empty_heap.container == [None, 1]
