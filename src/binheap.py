@@ -8,6 +8,7 @@ class Binheap(object):
 
     push(): puts a new value into the heap, maintaining the heap property.
     pop(): removes the top value in the heap, maintaining the heap property.
+    dislplay(): displays the heap as a string representation of a tree.
     """
 
     def __init__(self, data=None):
