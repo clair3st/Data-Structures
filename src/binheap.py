@@ -33,7 +33,7 @@ class Binheap(object):
         pass
 
     def display(self):
-        """Display the heap."""
+        """Display the heap as a tree."""
         cols = []
         col = 1
         to_show = ''
