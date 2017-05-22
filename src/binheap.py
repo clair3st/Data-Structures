@@ -31,3 +31,24 @@ class Binheap(object):
     def pop(self):
         """Remove the top value of the heap."""
         pass
+
+    def display(self):
+        """Display the heap."""
+        cols = []
+        col = 1
+        to_show = ''
+        l = self.container[1:]
+
+        while len(self.container) > col:
+            cols.append(col)
+            col *= 2
+
+        for i, v in enumerate(cols):
+            buff = cols[-1 - i] // 2
+            to_show += buff * ' '
+            for idx in range(v):
+                if l:
+                    to_show += str(l.pop(0)) + ' '
+            to_show += '\n'
+
+        print(to_show)
