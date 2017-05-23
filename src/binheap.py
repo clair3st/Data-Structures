@@ -52,4 +52,4 @@ class Binheap(object):
                     to_show += str(l.pop(0)) + ' '
             to_show += '\n'
 
-        print(to_show)
+        return to_show
