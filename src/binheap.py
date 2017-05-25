@@ -31,7 +31,14 @@ class Binheap(object):
 
     def pop(self):
         """Remove the top value of the heap."""
-        pass
+        self.container.pop(1)
+        size = len(self.container) - 1
+        while size // 2 > 0:
+            if self.container[size] > self.container[size // 2]:
+                tmp = self.container[size // 2]
+                self.container[size // 2] = self.container[size]
+                self.container[size] = tmp
+            size = size // 2
 
     def display(self):
         """Display the heap as a tree."""
