@@ -50,3 +50,11 @@ def test_push_on_empty(empty_heap):
 def test_initialize_iterable(heap):
     """Test heap can be initialized with iterable."""
     assert heap.container == [None, 72, 49, 13, 10, 6, 2, 1, 4]
+
+
+def test_display(heap):
+    """Test the display method."""
+    tree = '    72 \n  49 13 \n 10 6 2 1 \n4 \n'
+    print(heap.display())
+    print(tree)
+    assert heap.display() == tree
