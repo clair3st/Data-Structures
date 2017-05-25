@@ -55,6 +55,10 @@ def test_initialize_iterable(heap):
 def test_display(heap):
     """Test the display method."""
     tree = '    72 \n  49 13 \n 10 6 2 1 \n4 \n'
-    print(heap.display())
-    print(tree)
     assert heap.display() == tree
+
+
+def test_pop(heap):
+    """Test pop method."""
+    heap.pop()
+    assert heap.container == [None, 49, 13, 10, 6, 2, 1, 4]
