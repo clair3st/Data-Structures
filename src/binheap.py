@@ -31,6 +31,8 @@ class Binheap(object):
 
     def pop(self):
         """Remove the top value of the heap."""
+        if not self.container:
+            raise IndexError('Can\'t pop from and empty heap')
         self.container.pop(1)
         size = len(self.container) - 1
         while size // 2 > 0:
