@@ -62,3 +62,16 @@ def test_pop(heap):
     """Test pop method."""
     heap.pop()
     assert heap.container == [None, 49, 13, 10, 6, 2, 1, 4]
+
+
+def test_push_pop(heap):
+    """Test push followed by a pop."""
+    heap.push(5)
+    heap.pop()
+    assert heap.container == [None, 49, 13, 10, 6, 2, 1, 4, 5]
+
+
+def test_pop_empty(empty_heap):
+    """Test pop on an empty list."""
+    with pytest.raises(IndexError):
+        empty_heap.pop()
