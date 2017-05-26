@@ -18,9 +18,8 @@ class Binheap(object):
             for val in data:
                 self.push(val)
 
-    def push(self, val):
-        """Put a new value into the heap."""
-        self.container.append(val)
+    def _balance(self):
+        """Helper function to balance heap."""
         size = len(self.container) - 1
         while size // 2 > 0:
             if self.container[size] > self.container[size // 2]:
@@ -29,18 +28,17 @@ class Binheap(object):
                 self.container[size] = tmp
             size = size // 2
 
+    def push(self, val):
+        """Put a new value into the heap."""
+        self.container.append(val)
+        self._balance()
+
     def pop(self):
         """Remove the top value of the heap."""
         if not self.container:
             raise IndexError('Can\'t pop from and empty heap')
         self.container.pop(1)
-        size = len(self.container) - 1
-        while size // 2 > 0:
-            if self.container[size] > self.container[size // 2]:
-                tmp = self.container[size // 2]
-                self.container[size // 2] = self.container[size]
-                self.container[size] = tmp
-            size = size // 2
+        self._balance()
 
     def display(self):
         """Display the heap as a tree."""
