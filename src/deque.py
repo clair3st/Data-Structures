@@ -1,6 +1,6 @@
 """Python implementation of a deque."""
 
-from dll import DoubleLinkedList
+from src.dll import DoubleLinkedList
 
 
 class Deque(object):
