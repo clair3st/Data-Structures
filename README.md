@@ -152,3 +152,33 @@ The Deque implementation supports the following methods:
 | **peek()**      | returns the next value that would be returned by pop but leaves the value in the deque (returns None if the deque is empty)   |   O(1)        |
 | **peekleft()**      | returns the next value that would be returned by popleft but leaves the value in the deque (returns None if the deque is empty)     |   O(1)        |
 | **size()**      | returns the count of items in the queue (returns 0 if the queue is empty) |   O(1)        |
+
+_____________
+
+## Binary Heap
+
+A binary heap is a heap data structure that takes the form of a binary tree. Heaps where the parent node is greater than or equal to the child node are called max-heaps; those where it is less than or equal to are called min-heaps.
+
+Heaps are commonly implemented with an array. Any binary tree can be stored in an array, but because a binary heap is always a complete binary tree (only the bottom layer can be partially unfilled), it can be stored compactly. No space is required for pointers; instead, the parent and children of each node can be found by arithmetic on array indices. 
+
+![Binary Heap](https://upload.wikimedia.org/wikipedia/commons/6/60/Binary_heap_indexing.png)
+
+The advantages of a binary heap is due to the heap property it provides efficient search. I also sorts the tree in place and is easy to retrieve top N items
+
+
+- **Module:** [binheap.py](src/binheap.py)
+
+- **Tests:** [test_binheap.py](tests/test_binheap.py)
+
+- **Resources:**
+https://codefellows.github.io/sea-python-401d5/lectures/heap.html
+https://codefellows.github.io/sea-python-401d5/assignments/binary_heap.html
+https://en.wikipedia.org/wiki/Binary_heap
+
+The heap implementation supports the following methods:
+
+| Method        | Description   | Time Complexity  |
+| ------------- |-------------| :---------------:|
+| **push(val)**   | puts a new value into the heap, maintaining the heap property. | Ave: O(1), Worst: O(log n)           |
+| **pop()**      | removes the “top” value in the heap, maintaining the heap property.      |   O(log n)           |
+| **display()** | returns a string representation of the tree     |    O(n)            |
