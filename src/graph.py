@@ -37,7 +37,7 @@ class Graph(object):
 
     def add_node(self, n):
         """Add a new node to the graph."""
-        pass
+        self.graph.setdefault(n, {})
 
     def add_edge(self, n1, n2):
         """Add new edge to the graph."""
