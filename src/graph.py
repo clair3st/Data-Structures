@@ -33,7 +33,7 @@ class Graph(object):
 
     def edges(self):
         """Return a list of all edges in the graph."""
-        pass
+        return [edge for edges in self.graph.values() for edge in edges]
 
     def add_node(self, n):
         """Add a new node to the graph."""
