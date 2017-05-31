@@ -29,7 +29,7 @@ class Graph(object):
 
     def nodes(self):
         """Return a list of all nodes in the graph."""
-        pass
+        return list(self.graph.keys())
 
     def edges(self):
         """Return a list of all edges in the graph."""
