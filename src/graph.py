@@ -23,9 +23,12 @@ class Graph(object):
     False if not, raises an error if either of the supplied nodes are not in g.
     """
 
-    def __init__(self):
+    def __init__(self, data=None):
         """Initialize graph."""
         self.graph = {}
+        if data:
+            for i in data:
+                self.add_node(i)
 
     def nodes(self):
         """Return a list of all nodes in the graph."""
