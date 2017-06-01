@@ -40,11 +40,13 @@ class Graph(object):
 
     def add_node(self, n):
         """Add a new node to the graph."""
-        self.graph.setdefault(n, {})
+        self.graph.setdefault(n, set())
 
     def add_edge(self, n1, n2):
         """Add new edge to the graph."""
-        pass
+        self.graph.setdefault(n1, set([n2]))
+        self.graph.setdefault(n2, set())
+        self.graph[n1].add(n2)
 
     def del_edge(self, n1, n2):
         """Delete the edge connecting n1 and n2."""
