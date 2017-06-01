@@ -38,3 +38,9 @@ def test_add_nodes_dont_duplicate(test_graph):
     """Test add node doesn't duplicate."""
     test_graph[1].add_node('A')
     assert test_graph[1].nodes() == ['A']
+
+
+def test_add_edge(test_graph):
+    """Test add an edge."""
+    test_graph[2].add_edge('A', 'B')
+    assert test_graph[2].graph['A'] == {'B'}
