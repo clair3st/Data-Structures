@@ -40,7 +40,13 @@ def test_add_nodes_dont_duplicate(test_graph):
     assert test_graph[1].nodes() == ['A']
 
 
-def test_add_edge(test_graph):
+def test_add_edge_known_nodes(test_graph):
     """Test add an edge."""
     test_graph[2].add_edge('A', 'B')
     assert test_graph[2].graph['A'] == {'B'}
+
+
+def test_add_egde_new_nodes(test_graph):
+    """Test add an edge with nodes that don't exist."""
+    test_graph[0].add_edge('A', 'B')
+    assert test_graph[0].graph == {'A': {'B'}, 'B': set()}
