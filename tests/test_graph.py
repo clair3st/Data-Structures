@@ -75,3 +75,24 @@ def test_remove_edge_empty(test_graph):
     """Test remove edge empty graph."""
     with pytest.raises(KeyError):
         test_graph[0].del_edge('A', 'B')
+
+
+def test_has_node_true(test_graph):
+    """Test has node true."""
+    assert test_graph[2].has_node('A')
+
+
+def test_has_node_false(test_graph):
+    """Test has node false."""
+    assert not test_graph[0].has_node('A')
+
+
+def test_has_neighbors_true(test_graph):
+    """Test neighbors when exist."""
+    test_graph[2].add_edge('A', 'B')
+    assert test_graph[2].neighbors('A') == set(['B'])
+
+
+def test_has_neighbors_false(test_graph):
+    """Test neighbors when there are none."""
+    assert test_graph[2].neighbors('A') == set()
