@@ -58,7 +58,7 @@ class Graph(object):
 
     def neighbors(self, n):
         """Return the list of all nodes connected to n by edges."""
-        pass
+        return self.graph[n]
 
     def adjacent(self, n1, n2):
         """Return boolean if there is an edge connecting n1 and n2."""
