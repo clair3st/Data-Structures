@@ -54,7 +54,7 @@ class Graph(object):
 
     def has_node(self, n):
         """Return boolean if 'n' is in the graph."""
-        pass
+        return n in self.graph
 
     def neighbors(self, n):
         """Return the list of all nodes connected to n by edges."""
