@@ -56,7 +56,7 @@ def test_edges_full(test_graph):
     """Test edges returned in list with edge method."""
     test_graph[2].add_edge('A', 'B')
     test_graph[2].add_edge('A', 'C')
-    assert test_graph[2].edges() == ['B', 'C']
+    assert sorted(test_graph[2].edges()) == ['B', 'C']
 
 
 def test_edges_empty(test_graph):
@@ -69,3 +69,9 @@ def test_remove_edge_full(test_graph):
     test_graph[2].add_edge('A', 'B')
     test_graph[2].del_edge('A', 'B')
     assert test_graph[2].edges() == []
+
+
+def test_remove_edge_empty(test_graph):
+    """Test remove edge empty graph."""
+    with pytest.raises(KeyError):
+        test_graph[0].del_edge('A', 'B')
