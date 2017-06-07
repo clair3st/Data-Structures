@@ -50,7 +50,7 @@ class Graph(object):
 
     def del_edge(self, n1, n2):
         """Delete the edge connecting n1 and n2."""
-        pass
+        self.graph[n1].remove(n2)
 
     def has_node(self, n):
         """Return boolean if 'n' is in the graph."""
