@@ -96,3 +96,20 @@ def test_has_neighbors_true(test_graph):
 def test_has_neighbors_false(test_graph):
     """Test neighbors when there are none."""
     assert test_graph[2].neighbors('A') == set()
+
+
+def test_adjacent_true(test_graph):
+    """Test has node true."""
+    test_graph[2].add_edge('A', 'B')
+    assert test_graph[2].adjacent('A', 'B')
+
+
+def test_adjacent_false(test_graph):
+    """Test ajacent false."""
+    assert not test_graph[2].adjacent('A', 'B')
+
+
+def test_adjacent_error(test_graph):
+    """Test adjacent for error."""
+    with pytest.raises(KeyError):
+        test_graph[0].adjacent('A', 'B')
