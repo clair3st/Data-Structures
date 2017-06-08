@@ -182,3 +182,12 @@ The heap implementation supports the following methods:
 | **push(val)**   | puts a new value into the heap, maintaining the heap property. | Ave: O(1), Worst: O(log n)           |
 | **pop()**      | removes the “top” value in the heap, maintaining the heap property.      |   O(log n)           |
 | **display()** | returns a string representation of the tree     |    O(n)            |
+
+_____________
+
+## Graph
+
+- **Resources:**
+https://codefellows.github.io/sea-python-401d5/assignments/graph_1.html?highlight=graph
+https://en.wikipedia.org/wiki/Graph_(abstract_data_type)
+https://medium.freecodecamp.com/a-gentle-introduction-to-data-structures-how-graphs-work-a223d9ef8837
