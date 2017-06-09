@@ -187,7 +187,29 @@ _____________
 
 ## Graph
 
+Graphs allow for a representation of relationship between different nodes. There are two parts to a graph, the nodes themselves and the connections (referred to as edges) which represent the relationship between each node. Connections can be directed (the relationship exists in only one direction) or undirected (the relationship exisits in both directions)
+
+![Undirected Graph](http://www.algolist.net/img/graphs/graph-def-2.png) ![Directed Graph](http://www.algolist.net/img/graphs/graph-def-3.png)
+
+- **Module:** [graph.py](src/graph.py)
+
+- **Tests:** [test_graph.py](tests/test_graph.py)
+
 - **Resources:**
 https://codefellows.github.io/sea-python-401d5/assignments/graph_1.html?highlight=graph
 https://en.wikipedia.org/wiki/Graph_(abstract_data_type)
 https://medium.freecodecamp.com/a-gentle-introduction-to-data-structures-how-graphs-work-a223d9ef8837
+
+The graph implementation supports the following methods:
+
+| Method        | Description   | Time Complexity  |
+| ------------- |-------------| :---------------:|
+| **nodes()**   | return a list of all nodes in the graph. | O(n)          |
+| **edges()**   | return a list of all edges in the graph.     |   O(n)            |
+| **add_node(n)**      | adds a new node 'n' to the graph.     |   O(1)       |
+| **add_edge(n1, n2)** |  adds a new edge to the graph connecting 'n1' and 'n2', if either n1 or n2 are not already present in the graph, they should be added.    |    O(1)             |
+| **del_node(n)**      | deletes the node 'n' from the graph, raises an error if no such node exists.     |   O(1)            |
+| **del_edge(n1, n2)**      | deletes the edge connecting 'n1' and 'n2' from the graph, raises an error if no such edge exists.    |   O(1)           |
+| **has_node(n1, n2)**      | True if node 'n' is contained in the graph, False if not.    |   O(1)           |
+| **neighbors(n1, n2)**      | returns the list of all nodes connected to 'n' by edges, raises an error if n is not in g.    |   O(1)           |
+| **adjacent(n1, n2)**      | returns True if there is an edge connecting n1 and n2, False if not, raises an error if either of the supplied nodes are not in g.    |   O(1)           |
