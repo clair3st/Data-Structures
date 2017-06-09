@@ -113,3 +113,26 @@ def test_adjacent_error(test_graph):
     """Test adjacent for error."""
     with pytest.raises(KeyError):
         test_graph[0].adjacent('A', 'B')
+
+
+def test_graph_del_node_empty(test_graph):
+    """Test graph del node when node isn't there."""
+    with pytest.raises(KeyError):
+        test_graph[0].del_node('A')
+
+
+def test_graph_del_node_no_edges(test_graph):
+    """Test graph del node when node no edges."""
+    test_graph[1].del_node('A')
+    assert test_graph[1].graph == {}
+
+
+def test_graph_del_node_with_edges(test_graph):
+    """Test graph del node with edges."""
+    test_graph[2].add_edge('A', 'C')
+    test_graph[2].add_edge('B', 'C')
+    test_graph[2].add_edge('B', 'C')
+    test_graph[2].add_edge('A', 'D')
+    test_graph[2].del_node('C')
+    assert sorted(test_graph[2].nodes()) == ['A', 'B', 'D', 'E']
+    assert sorted(test_graph[2].edges()) == ['D']
