@@ -48,6 +48,12 @@ class Graph(object):
         self.graph.setdefault(n2, set())
         self.graph[n1].add(n2)
 
+    def del_node(self, n):
+        """Delete the node 'n' from the graph."""
+        del self.graph[n]
+        for k in self.graph:
+            self.graph[k].discard(n)
+
     def del_edge(self, n1, n2):
         """Delete the edge connecting n1 and n2."""
         self.graph[n1].remove(n2)
