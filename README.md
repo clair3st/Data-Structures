@@ -185,6 +185,19 @@ The heap implementation supports the following methods:
 
 _____________
 
+## Priority Queue
+
+- **Module:** [priorityq.py](src/priorityq.py)
+
+- **Tests:** [test_priorityq.py](tests/test_priorityq.py)
+
+- **Resources:**
+https://codefellows.github.io/sea-python-401d5/assignments/priority_queue.html
+
+
+
+_____________
+
 ## Graph
 
 Graphs allow for a representation of relationship between different nodes. There are two parts to a graph, the nodes themselves and the connections (referred to as edges) which represent the relationship between each node. Connections can be directed (the relationship exists in only one direction) or undirected (the relationship exisits in both directions)
