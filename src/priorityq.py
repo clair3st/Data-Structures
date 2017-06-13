@@ -1,6 +1,6 @@
 """Python implementation of a priorityq."""
 
-from a_queue import Queue
+from binheap import Binheap
 
 
 class PriorityQ(object):
@@ -18,7 +18,7 @@ class PriorityQ(object):
 
     def __init__(self):
         """Initialize priorityq."""
-        self._container = Queue()
+        self._container = Binheap()
 
     def insert(self, val, priority=0):
         """Insert a val into the queue with an argument for the priority."""
