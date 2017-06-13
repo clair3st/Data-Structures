@@ -27,11 +27,14 @@ class PriorityQ(object):
     def pop(self):
         """Remove the most important item from the queue."""
         to_return = self._container.container[1][1]
-        if to_return is None:
+        if not to_return:
             raise(IndexError, 'Can\'t pop from an empty queue.')
         self._container.pop()
         return to_return
 
     def peek(self):
         """Return the most important item without removing it."""
-        pass
+        try:
+            return self._container.container[1][1]
+        except IndexError:
+            return None
