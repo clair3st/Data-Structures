@@ -40,6 +40,16 @@ def test_priority_q_pop(test_q):
 
 
 def test_priority_q_pop_empty(test_q):
-    """Test priority q pop, remove highest priority."""
+    """Test priority q pop, raises index error on empty."""
     with pytest.raises(IndexError):
         test_q[0].pop()
+
+
+def test_peek_returns_highest_priority(test_q):
+    """Test priority q returns highest value."""
+    assert test_q[1].peek() == 'sgds'
+
+
+def test_priority_q_peek_empty(test_q):
+    """Test priority q peek, returns None."""
+    assert test_q[0].peek() is None
