@@ -22,7 +22,7 @@ class PriorityQ(object):
 
     def insert(self, val, priority=0):
         """Insert a val into the queue with an argument for the priority."""
-        self._container.push((val, priority))
+        self._container.push((priority, val))
 
     def pop(self):
         """Remove the most important item from the queue."""
