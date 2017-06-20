@@ -99,7 +99,7 @@ _____________
 
 A queue is an ordered collection of nodes with operations only allowing the addition of new nodes to the tail and removing nodes from the head of the collection. The Queue is called a First In First Out (FIFO) data structure for this reason. 
 
-![Queue](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/600px-Data_Queue.svg.png)
+<img alt="Queue" align="middle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/600px-Data_Queue.svg.png" width="500">
 
 Queues are used in computer science exactly like they are in the physical world, that is, they are a buffer and store data until it will later get processed. They have limited access (only insert at the tail) and they can always be added to (the length is unlimited).
 
@@ -189,7 +189,7 @@ _____________
 
 Priority Q is like a regular queue with the added element of a 'priority'. Elements with a higher priority is severed before elements of a lower priority. If two elements have the same priority they are served based on their order in the queue.
 
-![Priority Q](https://netmatze.files.wordpress.com/2014/08/queue.png)
+<img alt="Priority Q" align="middle" src="https://netmatze.files.wordpress.com/2014/08/queue.png" width="500">
 
 Priority Queues are very useful for situations when you need to process items in a particular order, but not necessarily in full sorted order and not all at the same time.
 
