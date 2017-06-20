@@ -9,7 +9,7 @@ class PriorityQ(object):
 
     Following methods are supported.
 
-    Insert(value): inserts a value into the queue.
+    Insert(value, [priority]): inserts a value into the queue.
     Takes an optional argument for that value's priority.
     pop(): removes the most important item from the queue
     and returns its value.
