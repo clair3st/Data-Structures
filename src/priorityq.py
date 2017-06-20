@@ -1,6 +1,6 @@
 """Python implementation of a priorityq."""
 
-from binheap import Binheap
+from src.binheap import Binheap
 
 
 class PriorityQ(object):
