@@ -185,6 +185,33 @@ The heap implementation supports the following methods:
 
 _____________
 
+## Priority Queue
+
+Priority Q is like a regular queue with the added element of a 'priority'. Elements with a higher priority is severed before elements of a lower priority. If two elements have the same priority they are served based on their order in the queue.
+
+![Priority Q](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwjh0fKFvM3UAhVBU2MKHSztBUgQjRwIBw&url=https%3A%2F%2Fnetmatze.wordpress.com%2F2014%2F09%2F17%2Fimplementing-a-sychronized-priority-queue-in-c%2F&psig=AFQjCNFLuhiERm8bbM0f4XCMY0uf-TX37w&ust=1498084024573663)
+
+Priority Queues are very useful for situations when you need to process items in a particular order, but not necessarily in full sorted order and not all at the same time.
+
+
+- **Module:** [priorityq.py](src/priorityq.py)
+
+- **Tests:** [test_priorityq.py](tests/test_priorityq.py)
+
+- **Resources:**
+https://codefellows.github.io/sea-python-401d5/assignments/priority_queue.html
+https://en.wikipedia.org/wiki/Priority_queue
+
+The priorityq implementation supports the following methods:
+
+| Method        | Description   | Time Complexity  |
+| ------------- |-------------| :---------------:|
+| **insert(val, [priority])**   | puts a new value into the queue, maintaining the heap property. |  O(log n)           |
+| **pop()**      | removes the most important item from the queue.      |   O(log n)           |
+| **peek()** | returns the most important item without removing it from the queue    |    O(1)            |
+
+_____________
+
 ## Graph
 
 Graphs allow for a representation of relationship between different nodes. There are two parts to a graph, the nodes themselves and the connections (referred to as edges) which represent the relationship between each node. Connections can be directed (the relationship exists in only one direction) or undirected (the relationship exisits in both directions)

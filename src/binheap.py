@@ -2,7 +2,7 @@
 
 
 class Binheap(object):
-    """Python implementation of binary heap.
+    """Python implementation of max binary heap.
 
     supports the following method
 
