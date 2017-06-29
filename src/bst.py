@@ -44,7 +44,6 @@ class Bst(object):
         self._size = 0
         self._rightbalance = 0
         self._leftbalance = 0
-        self._depth = 0
         self.root = None
 
     def insert(self, val):
@@ -54,10 +53,7 @@ class Bst(object):
             self._size += 1
             return
 
-        branch_level = self._move_down_tree(self, val)
-
-        if branch_level > self.depth:
-            self.depth = branch_level
+        self._move_down_tree(val)
 
     def _move_down_tree(self, val):
         """Move down tree, depending on val."""
@@ -71,7 +67,6 @@ class Bst(object):
                 curr = self._set_child(curr, 'right', val, branch_level)
             else:
                 break
-        return branch_level
 
     def _set_child(self, curr, side, val, branch_level):
         """Helping."""
@@ -81,8 +76,8 @@ class Bst(object):
             setattr(curr, side, Node(val, curr))
             self._size += 1
 
-            if getattr(self, side + 'balance') < branch_level:
-                setattr(self, side + 'balance', branch_level)
+            if getattr(self, '_' + side + 'balance') < branch_level:
+                setattr(self, '_' + side + 'balance', branch_level)
 
         return curr
 
@@ -103,7 +98,7 @@ class Bst(object):
 
     def depth(self):
         """Return depth of the BST, representing total levels."""
-        return self._depth
+        return max(self._rightbalance, self._leftbalance)
 
     def contains(self, val):
         """Return true if val is in the bst."""
