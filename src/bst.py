@@ -10,7 +10,6 @@ class Node(object):
         self.right = None
         self.left = None
         self.parent = parent
-        self.balance = 0
 
 
 class Bst(object):
@@ -43,8 +42,8 @@ class Bst(object):
     def __init__(self, data=None):
         """Initialize tree."""
         self._size = 0
-        self._rbalance = 0
-        self._lbalance = 0
+        self._rightbalance = 0
+        self._leftbalance = 0
         self._depth = 0
         self.root = None
 
@@ -52,25 +51,39 @@ class Bst(object):
         """Insert val into BST. If val is already present will be ignored."""
         if not self.root:
             self.root = Node(val)
-            self.size += 1
+            self._size += 1
             return
 
+        branch_level = self._move_down_tree(self, val)
+
+        if branch_level > self.depth:
+            self.depth = branch_level
+
+    def _move_down_tree(self, val):
+        """Move down tree, depending on val."""
         curr = self.root
+        branch_level = 0
         while curr:
+            branch_level += 1
             if val < curr.val:
-                curr = self._set_child(curr, 'left', val)
+                curr = self._set_child(curr, 'left', val, branch_level)
             elif val > curr.val:
-                curr = self._set_child(curr, 'right', val)
+                curr = self._set_child(curr, 'right', val, branch_level)
             else:
                 break
+        return branch_level
 
-    def _set_child(self, curr, side, val):
+    def _set_child(self, curr, side, val, branch_level):
         """Helping."""
         if getattr(curr, side):
             curr = getattr(curr, side)
         else:
             setattr(curr, side, Node(val, curr))
             self._size += 1
+
+            if getattr(self, side + 'balance') < branch_level:
+                setattr(self, side + 'balance', branch_level)
+
         return curr
 
     def search(self, val):
@@ -90,12 +103,18 @@ class Bst(object):
 
     def depth(self):
         """Return depth of the BST, representing total levels."""
-        pass
+        return self._depth
 
     def contains(self, val):
         """Return true if val is in the bst."""
-        pass
+        return self.search(val) is not None
 
     def balance(self):
-        """Return an integer of how well the tree is balanced."""
-        pass
+        """Return an integer of how well the tree is balanced.
+
+        Trees which are higher on the left than the right should return a
+        positive value, trees which are higher on the right than the left
+        should return a negative value. An ideally-balanced tree should
+        return 0.
+        """
+        return self._rightbalance - self._leftbalance
