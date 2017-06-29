@@ -53,10 +53,6 @@ class Bst(object):
             self._size += 1
             return
 
-        self._move_down_tree(val)
-
-    def _move_down_tree(self, val):
-        """Move down tree, depending on val."""
         curr = self.root
         branch_level = 0
         while curr:
