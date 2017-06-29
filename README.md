@@ -240,3 +240,9 @@ The graph implementation supports the following methods:
 | **has_node(n1, n2)**      | True if node 'n' is contained in the graph, False if not.    |   O(1)           |
 | **neighbors(n1, n2)**      | returns the list of all nodes connected to 'n' by edges, raises an error if n is not in g.    |   O(1)           |
 | **adjacent(n1, n2)**      | returns True if there is an edge connecting n1 and n2, False if not, raises an error if either of the supplied nodes are not in g.    |   O(1)           |
+
+_____________
+
+## Binary Search Tree
+
+https://codefellows.github.io/sea-python-401d6/assignments/bst_1.html
