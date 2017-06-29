@@ -84,10 +84,9 @@ class Bst(object):
             else:
                 curr = curr.right
 
-
     def size(self):
         """Return the size of the BST."""
-        pass
+        return self._size
 
     def depth(self):
         """Return depth of the BST, representing total levels."""
