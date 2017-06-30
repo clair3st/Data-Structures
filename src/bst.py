@@ -46,6 +46,10 @@ class Bst(object):
         self._leftbalance = 0
         self.root = None
 
+        if data:
+            for i in data:
+                self.insert(i)
+
     def insert(self, val):
         """Insert val into BST. If val is already present will be ignored."""
         if not self.root:
