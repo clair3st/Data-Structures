@@ -39,3 +39,21 @@ def test_insert_largest_right(test_bsts):
     """Test insert the largest to the right."""
     test_bsts[1].insert(7)
     assert test_bsts[1].root.right.val > test_bsts[1].root.val
+
+
+def test_insert_increases_size(test_bsts):
+    """Test insert increases size."""
+    test_bsts[0].insert(4)
+    assert test_bsts[0].size() == 1
+
+
+def test_contains_method(test_bsts):
+    """Test contains on number that exists."""
+    assert test_bsts[2].contains(5)
+    assert test_bsts[2].contains(3)
+    assert test_bsts[2].contains(7)
+
+
+# def test_depth_method(test_bsts):
+#     """Test depth method."""
+#     assert test_bsts[2].depth() == 2
