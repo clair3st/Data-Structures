@@ -87,7 +87,7 @@ class Bst(object):
         while curr:
             if curr.val == val:
                 return curr
-            elif curr.val < val:
+            elif val < curr.val:
                 curr = curr.left
             else:
                 curr = curr.right
