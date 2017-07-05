@@ -54,6 +54,10 @@ def test_contains_method(test_bsts):
     assert test_bsts[2].contains(7)
 
 
+def test_contains_method_no_val(test_bsts):
+    """Test contains that doesnt exist."""
+    assert not test_bsts[4].contains(10)
+
 # def test_depth_method(test_bsts):
 #     """Test depth method."""
 #     assert test_bsts[2].depth() == 2
