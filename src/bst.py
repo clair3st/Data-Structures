@@ -152,10 +152,19 @@ class Bst(object):
         for n in self.pre_order(node=node.right):
             yield n
 
-
-    def in_order(self):
+    def in_order(self, node='root'):
         """Depth first in-order traversal of tree."""
-        pass
+        if node is 'root':
+            node = self.root
+
+        if not node:
+            return
+
+        for n in self.in_order(node=node.left):
+            yield n
+        yield node.val
+        for n in self.in_order(node=node.right):
+            yield n
 
     def post_order(self):
         """Depth frist post_order traversal of tree."""
