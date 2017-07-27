@@ -10,12 +10,11 @@ class Node(object):
         self.right = None
         self.left = None
         self.parent = parent
-        self.depth = 0
-        self.depth_level = 0
+        self.height = 1
 
     def is_leaf(self):
-        """Return True if node is a leaf (no children)."""
-        return not (self.right and self.left)
+        """Return true if a leaf."""
+        return not (self.right or self.left)
 
 
 class Bst(object):
@@ -49,7 +48,6 @@ class Bst(object):
         """Initialize tree."""
         self._size = 0
         self.root = None
-        self._depth = 0
 
         if data:
             for i in data:
@@ -61,78 +59,29 @@ class Bst(object):
             self.root = Node(val)
             self._size += 1
         else:
-            self._sink(val, self.root)
+            self._step(val, self.root)
 
-
-        # branch_level = 0
-        # while curr:
-        #     branch_level += 1
-        #     if val < curr.val:
-        #         curr = self._set_child(curr, 'left', val, branch_level)
-        #     elif val > curr.val:
-        #         curr = self._set_child(curr, 'right', val, branch_level)
-        #     else:
-        #         break
-
-    def _sink(self, val, curr):
-        """Recursively inserts value into the tree."""
+    def _step(self, val, curr):
+        """Decide left or right and returns height."""
         if val < curr.val:
-            # if not cur_node.left_child:
-            #     cur_node.left_child = Node(val, cur_node)
-            #     self.size_number += 1
-            #     if cur_node.balance_number == 0:
-            #         cur_node.balance_number = 1
-            # else:
-            #     count = self._sink(val, cur_node.left_child)
-            #     if cur_node.balance_number <= count:
-            #         cur_node.balance_number += 1
             curr = self._set_child(curr, 'left', val)
-
         elif val > curr.val:
-            # if not cur_node.right_child:
-            #     cur_node.right_child = Node(val, cur_node)
-            #     self.size_number += 1
-            #     if cur_node.balance_number == 0:
-            #         cur_node.balance_number = 1
-            # else:
-            #     count = self._sink(val, cur_node.right_child)
-            #     if cur_node.balance_number <= count:
-            #         cur_node.balance_number += 1
             curr = self._set_child(curr, 'right', val)
-        return curr.depth_level
+        return curr.height
 
     def _set_child(self, curr, side, val):
         """Helping."""
         child = getattr(curr, side)
         if child:
-            count = self._sink(val, child)
-            if curr.depth_level <= count:
-                curr.depth_level += 1
+            count = self._step(val, child)
+            if curr.height <= count:
+                curr.height += 1
         else:
             setattr(curr, side, Node(val, curr))
             self._size += 1
-            if curr.depth_level is 0:
-                curr.depth_level += 1
+            if curr.height is 1:
+                curr.height += 1
         return curr
-        # if getattr(curr, side):
-        #     curr = getattr(curr, side)
-
-
-        #     # self._set_height(curr.depth, branch_level)
-        #     # self._set_height(self._depth, branch_level)
-
-        #     # print(str(curr.val) + ': ' + str(curr.depth))
-
-        # else:
-        #     setattr(curr, side, Node(val, curr))
-        #     self._size += 1
-
-        # return curr
-
-    def _set_height(self, depth, branch_height):
-        """Set new branch height."""
-        if depth < branch_height:
-            depth = branch_height
 
     def search(self, val):
         """Return the node containing val."""
@@ -151,8 +100,7 @@ class Bst(object):
 
     def depth(self):
         """Return depth of the BST, representing total levels."""
-        # return max(self._rightbalance, self._leftbalance)
-        return self._depth
+        return None if not self.root else self.root.height
 
     def contains(self, val):
         """Return true if val is in the bst."""
@@ -168,10 +116,10 @@ class Bst(object):
         """
         if not tree:
             tree = self.root
-        return tree._rightbalance - tree._leftbalance
+            if not tree:
+                return 0
 
+        leftbranch = 0 if not tree.left else tree.left.height
+        rightbranch = 0 if not tree.right else tree.right.height
 
-if __name__ == '__main__':
-    print('BST')
-    b = Bst([1, 2, 3, 4, 5])
-    print('root', b.root.val)
+        return rightbranch - leftbranch
