@@ -42,6 +42,19 @@ class Bst(object):
     the right should return a positive value, trees which are higher on the
     right than the left should return a negative value. An ideally-balanced
     tree should return 0.
+
+    in_order(): return a generator that will return the values in the tree using
+    in-order traversal, one at a time.
+
+    pre_order(): return a generator that will return the values in the tree using
+    pre-order traversal, one at a time.
+
+    post_order(): return a generator that will return the values in the tree using
+    post-order traversal, one at a time.
+
+    breadth_first(): return a generator that will return the values in the tree using
+    breadth frist traversal, one at a time.
+
     """
 
     def __init__(self, data=None):
@@ -123,3 +136,31 @@ class Bst(object):
         rightbranch = 0 if not tree.right else tree.right.height
 
         return leftbranch - rightbranch
+
+    def pre_order(self, node='root'):
+        """Depth first pre-order traversal of tree."""
+        if node is 'root':
+            node = self.root
+
+        if not node:
+            return
+
+        yield node.val
+
+        for n in self.pre_order(node=node.left):
+            yield n
+        for n in self.pre_order(node=node.right):
+            yield n
+
+
+    def in_order(self):
+        """Depth first in-order traversal of tree."""
+        pass
+
+    def post_order(self):
+        """Depth frist post_order traversal of tree."""
+        pass
+
+    def breadth_first(self):
+        """Breadth first traversal of tree."""
+        pass
