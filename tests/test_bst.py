@@ -108,3 +108,8 @@ def test_in_order(test_traversals):
     path = [i for i in test_traversals['tree'].in_order()]
     assert path == test_traversals['in_order']
 
+
+def test_post_order(test_traversals):
+    """Test postorder for a traversal."""
+    path = [i for i in test_traversals['tree'].post_order()]
+    assert path == test_traversals['post_order']
