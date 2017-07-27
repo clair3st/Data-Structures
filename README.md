@@ -240,3 +240,34 @@ The graph implementation supports the following methods:
 | **has_node(n1, n2)**      | True if node 'n' is contained in the graph, False if not.    |   O(1)           |
 | **neighbors(n1, n2)**      | returns the list of all nodes connected to 'n' by edges, raises an error if n is not in g.    |   O(1)           |
 | **adjacent(n1, n2)**      | returns True if there is an edge connecting n1 and n2, False if not, raises an error if either of the supplied nodes are not in g.    |   O(1)           |
+
+_____________
+
+## Binary Search Tree
+
+Binary Search Tree (BST) is a data structure used to map from key to value. A binary search tree relies on the property that keys that are less than the parent are found in the left subtree, and keys that are greater than the parent are found in the right subtree.
+
+If the tree is empty, then a new node inserted into the tree becomes the tree’s root. The next node inserted will have its key compared to the key of the root node. If lower, it will occupy the “left” attribute of the root node. If higher, it occupies the “right” attribute. If a node tries to occupy the “left” or “right” attribute of the root and that attribute is already occupied, it moves down the tree to that node and has its key compared again.
+
+![Binary Search Tree](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/300px-Binary_search_tree.svg.png) 
+
+Binary Search Trees are a popular data structure choice in computing because of its efficient sorting and searching of data. On average, each comparison allows searching to ignore half of the tree. As such, each search takes time proportional to the logarithm of the number of items stored in the tree.
+
+- **Module:** [bst.py](src/bst.py)
+
+- **Tests:** [test_bst.py](tests/test_bst.py)
+
+- **Resources:**
+https://codefellows.github.io/sea-python-401d6/assignments/bst_1.html
+https://codefellows.github.io/sea-python-401d6/lectures/binary_search_tree1.html
+
+
+ Method        | Description   | Time Complexity  
+ ------------- |-------------| :---------------:
+ **insert(val)**   | insert the value val into the BST. If val is already present, it will be ignored. |    Best: O(log n),<br> Worst: O(n)      
+ **search(val)**   | return the node containing that value, else None     |    Best: O(log n), <br>Worst: O(n)         
+ **size()**      | will return the integer size of the BST (equal to the total number of values stored in the tree). It will return 0 if the tree is empty.     |    O(1)     
+ **depth()** |  will return an integer representing the total number of levels in the tree. If there are no values, depth is 0, if one value the depth should be 1, if two values it will be 2, if three values it may be 2 or 3, depending, etc.     |      O(1)        
+ **contians(val)**      | will return True if val is in the BST, False if not     |      Best: O(log n), <br>Worst: O(n)        
+ **balance()**      | will return an integer, positive or negative that represents how well balanced the tree is. Trees which are higher on the left than the right should return a positive value, trees which are higher on the right than the left should return a negative value. An ideally-balanced tree should return 0.    |     O(1)        
+
