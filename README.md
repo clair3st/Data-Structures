@@ -261,12 +261,12 @@ Binary Search Trees are a popular data structure choice in computing because of 
 https://codefellows.github.io/sea-python-401d6/assignments/bst_1.html
 https://codefellows.github.io/sea-python-401d6/lectures/binary_search_tree1.html
 
-| Method        | Description   | Time Complexity  |
-| ------------- |-------------| :---------------:|
-| **insert(val)**   | insert the value val into the BST. If val is already present, it will be ignored. |    Best: O(log n), Worst: O(n)      |
-| **search(val)**   | return the node containing that value, else None     |    Best: O(log n), Worst: O(n)         |
-| **size()**      | will return the integer size of the BST (equal to the total number of values stored in the tree). It will return 0 if the tree is empty.     |    O(1)     |
-| **depth()** |  will return an integer representing the total number of levels in the tree. If there are no values, depth is 0, if one value the depth should be 1, if two values it will be 2, if three values it may be 2 or 3, depending, etc.   |        O(1)        |
-| **contians(val)**      | will return True if val is in the BST, False if not     |      Best: O(log n), Worst: O(n)        |
-| **balance()**      | will return an integer, positive or negative that represents how well balanced the tree is. Trees which are higher on the left than the right should return a positive value, trees which are higher on the right than the left should return a negative value. An ideally-balanced tree should return 0.    |     O(1)        |
+ Method        | Description   | Time Complexity  
+ ------------- |-------------| :---------------:
+ **insert(val)**   | insert the value val into the BST. If val is already present, it will be ignored. |    Best: O(log n), Worst: O(n)      
+ **search(val)**   | return the node containing that value, else None     |    Best: O(log n), Worst: O(n)         
+ **size()**      | will return the integer size of the BST (equal to the total number of values stored in the tree). It will return 0 if the tree is empty.     |    O(1)     
+ **depth()** |  will return an integer representing the total number of levels in the tree. If there are no values, depth is 0, if one value the depth should be 1, if two values it will be 2, if three values it may be 2 or 3, depending, etc.           O(1)        
+ **contians(val)**      | will return True if val is in the BST, False if not     |      Best: O(log n), Worst: O(n)        
+ **balance()**      | will return an integer, positive or negative that represents how well balanced the tree is. Trees which are higher on the left than the right should return a positive value, trees which are higher on the right than the left should return a negative value. An ideally-balanced tree should return 0.    |     O(1)        
 
