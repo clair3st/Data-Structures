@@ -66,14 +66,14 @@ def test_contains_method_no_val(test_bsts):
 
 def test_depth_method(test_bsts):
     """Test depth method."""
-    depths = [None, 1, 2, 3, 4, 6]
+    depths = [0, 1, 2, 3, 4, 6]
     assert all(tree.depth() == depths[idx]
                for idx, tree in enumerate(test_bsts))
 
 
 def test_balance_method(test_bsts):
     """Test the balance method."""
-    balance = [0, 0, 0, 0, -3, 5]
+    balance = [0, 0, 0, 0, 3, -5]
     assert all(tree.balance() == balance[idx]
                for idx, tree in enumerate(test_bsts))
 
