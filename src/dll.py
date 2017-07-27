@@ -10,6 +10,10 @@ class Node(object):
         self.next = next_node
         self.prev = prev
 
+    def __repr__(self):
+        """String representation."""
+        return "Value: {}".format(self.data)
+
 
 class DoubleLinkedList(object):
     """Double linked list impplementation.
@@ -23,10 +27,10 @@ class DoubleLinkedList(object):
     starting from the head.
     """
 
-    def __init__(self, data=None, head=None, tail=None):
+    def __init__(self, data=None):
         """Initialize list."""
-        self.head = head
-        self.tail = tail
+        self.head = None
+        self.tail = None
         self._length = 0
         try:
             for val in data:
@@ -38,7 +42,7 @@ class DoubleLinkedList(object):
     def push(self, val):
         """Add val to the head of the list."""
         old_head = self.head
-        self.head = Node(val, old_head)
+        self.head = Node(val, next_node=old_head)
         if old_head:
             old_head.prev = self.head
         if not self.tail:
@@ -50,20 +54,23 @@ class DoubleLinkedList(object):
         to_return = self.head
         if self._length < 1:
             raise IndexError('Cannot pop from an empty list.')
-        elif self._length is 1:
-            self.head, self.tail = None, None
-        else:
-            self.head.next.prev, self.head = None, self.head.next
+
+        new_head = self.head.next
+        if new_head:
+            new_head.prev = None
+        self.head = new_head
         self._length -= 1
-        return to_return
+        if self._length < 1:
+            self.tail = None
+        return to_return.data
 
     def append(self, val):
         """Add val to the tail of the list."""
         old_tail = self.tail
-        self.tail = Node(val, None, old_tail)
+        self.tail = Node(val, prev=old_tail)
         if old_tail:
-            old_tail.prev = self.tail
-        if not self.head:
+            old_tail.next = self.tail
+        if self._length < 1:
             self.head = self.tail
         self._length += 1
 
@@ -72,12 +79,15 @@ class DoubleLinkedList(object):
         to_return = self.tail
         if self._length < 1:
             raise IndexError('Cannot shift from an empty list.')
-        elif self._length is 1:
-            self.head, self.tail = None, None
-        else:
-            self.tail.prev.next, self.tail = None, self.tail.prev
+
+        new_tail = self.tail.prev
+        if new_tail:
+            new_tail.next = None
+        self.tail = new_tail
         self._length -= 1
-        return to_return
+        if self._length < 1:
+            self.tail = None
+        return to_return.data
 
     def remove(self, val):
         """Remove first occurance of val from list."""
@@ -93,9 +103,12 @@ class DoubleLinkedList(object):
                 elif curr is self.tail:
                     self.tail, curr.prev.next = curr.prev, None
                 self._length -= 1
+                return
             curr = curr.next
 
-    def _repr(self):
+        raise ValueError('{} is not in the list'.format(val))
+
+    def __repr__(self):
         """Return list representation of dll."""
         l = []
         while True:
