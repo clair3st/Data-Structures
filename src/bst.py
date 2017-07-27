@@ -100,7 +100,7 @@ class Bst(object):
 
     def depth(self):
         """Return depth of the BST, representing total levels."""
-        return None if not self.root else self.root.height
+        return 0 if not self.root else self.root.height
 
     def contains(self, val):
         """Return true if val is in the bst."""
@@ -122,4 +122,4 @@ class Bst(object):
         leftbranch = 0 if not tree.left else tree.left.height
         rightbranch = 0 if not tree.right else tree.right.height
 
-        return rightbranch - leftbranch
+        return leftbranch - rightbranch
