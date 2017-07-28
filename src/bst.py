@@ -14,9 +14,25 @@ class Node(object):
         self.parent = parent
         self.height = 1
 
-    def is_leaf(self):
+    def _is_leaf(self):
         """Return true if a leaf."""
         return not (self.right or self.left)
+
+    def _is_interior(self):
+        """Return true if a interior node."""
+        return (self.right and self.left)
+
+    def _onlychild(self):
+        """Return string depending on children."""
+        if self.left and not self.right:
+            return 'left'
+        if self.right and not self.left:
+            return 'right'
+
+    def _side(self):
+        """Return if left or right child of parent."""
+        if self.parent:
+            return 'left' if self.parent.left == self else 'right'
 
 
 class Bst(object):
@@ -193,3 +209,52 @@ class Bst(object):
                 q.enqueue(node.left)
             if node.right:
                 q.enqueue(node.right)
+
+    def delete(self, val):
+        """Remove a node from the tree."""
+        if self._size < 1 or not self.contains(val):
+            return
+
+        node = self.search(val)
+
+        if node._is_leaf():  # no children
+            if node.parent:
+                setattr(node.parent, node._side(), None)
+            else:
+                self.root = None
+
+        elif node._is_interior():  # two children
+            next_node = self._find_replacement(node)
+            self._size += 1
+            self.delete(next_node.val)
+            node.val = next_node.val
+
+        else:  # one children
+            child = getattr(node, node._onlychild())
+            if node.parent:
+                child.parent = node.parent
+                setattr(node.parent, node._side(), child)
+            else:
+                self.root = child
+
+        self._size -= 1
+
+    def _find_replacement(self, node):
+        """Find left most node of right subtree."""
+        if node.right:
+            return self._findmin(node.right)
+        else:
+            if node.parent:
+                if node._side() is 'left':
+                    return self.parent
+                else:
+                    node.parent.right = None
+                    tmp = self._find_replacement(node.parent)
+                    node.parent.right = node
+                    return tmp
+
+    def _findmin(self, node):
+        """Find min of subtree, Min is always left most node."""
+        while node.left:
+            node = node.left
+        return node
