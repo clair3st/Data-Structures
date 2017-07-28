@@ -110,7 +110,7 @@ def test_pop_sequence(test_deque):
     while True:
         try:
             poped_data = test_deque[2].pop()
-            l.append(poped_data.data)
+            l.append(poped_data)
         except IndexError:
             break
     assert l == [1, 2, 3, 4, 5]
@@ -120,7 +120,7 @@ def test_pop_append(test_deque):
     """Append data and pop it off."""
     test_deque[1].append(9)
     poped_data = test_deque[1].pop()
-    assert poped_data.data is 9
+    assert poped_data is 9
 
 
 def test_popleft_reduces_length(test_deque):
@@ -163,7 +163,7 @@ def test_popleft_sequence(test_deque):
     while True:
         try:
             poplefted_data = test_deque[2].popleft()
-            l.append(poplefted_data.data)
+            l.append(poplefted_data)
         except IndexError:
             break
     assert l == [5, 4, 3, 2, 1]
@@ -173,7 +173,7 @@ def test_popleft_appendleft(test_deque):
     """Append data and popleft it off."""
     test_deque[1].appendleft(9)
     poplefted_data = test_deque[1].popleft()
-    assert poplefted_data.data is 9
+    assert poplefted_data is 9
 
 
 def test_size_method_append(test_deque):
