@@ -45,17 +45,17 @@ class Bst(object):
     right than the left should return a negative value. An ideally-balanced
     tree should return 0.
 
-    in_order(): return a generator that will return the values in the tree using
-    in-order traversal, one at a time.
+    in_order(): return a generator that will return the values in the tree
+    using in-order traversal, one at a time.
 
-    pre_order(): return a generator that will return the values in the tree using
-    pre-order traversal, one at a time.
+    pre_order(): return a generator that will return the values in the tree
+    using pre-order traversal, one at a time.
 
-    post_order(): return a generator that will return the values in the tree using
-    post-order traversal, one at a time.
+    post_order(): return a generator that will return the values in the tree
+    using post-order traversal, one at a time.
 
-    breadth_first(): return a generator that will return the values in the tree using
-    breadth frist traversal, one at a time.
+    breadth_first(): return a generator that will return the values in the tree
+    using breadth frist traversal, one at a time.
 
     """
 
