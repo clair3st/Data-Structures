@@ -279,7 +279,7 @@ This is the process of visiting each node in the tree once. Trees may be travers
 
  - Depth first Traversals:
     - Pre-order traversal: F, B, A, D, C, E, G, I, H. <br>
-    <img alt="Pre-order" align="middle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sorted_binary_tree_preorder.svg/440px-Sorted_binary_tree_preorder.svg.png" width="500">
+    ![Pre-order](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sorted_binary_tree_preorder.svg/440px-Sorted_binary_tree_preorder.svg.png)
     - In-order traversal: A, B, C, D, E, F, G, H, I. <br>
     ![In-order](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sorted_binary_tree_inorder.svg/440px-Sorted_binary_tree_inorder.svg.png)
     - Post-order traversal: A, C, E, D, B, H, I, G, F. <br>
