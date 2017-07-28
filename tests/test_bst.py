@@ -33,7 +33,7 @@ def test_traversals():
 
 def test_node_is_leaf(test_bsts):
     """Test node is leaf bst."""
-    assert test_bsts[1].root.is_leaf()
+    assert test_bsts[1].root._is_leaf()
 
 
 def test_insert_sets_root(test_bsts):
@@ -126,3 +126,92 @@ def test_traversals_none(test_traversals):
     """Test traversal when empty."""
     path = [i for i in test_traversals['empty'].in_order()]
     assert path == []
+
+
+def test_del_false(test_bsts):
+    """Test delete for a node not in tree."""
+    size = test_bsts[2].size()
+    test_bsts[2].delete(1)
+    assert test_bsts[2].size() == size
+
+
+def test_del_empty_tree(test_bsts):
+    """Test delete for an empty tree."""
+    test_bsts[0].delete(1)
+    assert test_bsts[0].size() == 0
+
+
+def test_remove_leaf_left(test_bsts):
+    """Test delete leaf on left."""
+    test_bsts[2].delete(3)
+    assert not test_bsts[2].contains(3)
+    assert test_bsts[2].size() is 2
+
+
+def test_remove_leaf_right(test_bsts):
+    """Test delete leaf on right."""
+    test_bsts[2].delete(7)
+    assert not test_bsts[2].contains(7)
+    assert test_bsts[2].size() is 2
+
+
+def test_remove_leaf_root(test_bsts):
+    """Test delete leaf that is root."""
+    test_bsts[1].delete(5)
+    assert not test_bsts[1].contains(5)
+    assert test_bsts[1].size() is 0
+
+
+def test_remove_one_child_left(test_bsts):
+    """Test delete node one child, left."""
+    test_bsts[4].delete(3)
+    assert not test_bsts[4].contains(3)
+    assert test_bsts[4].size() is 3
+
+
+def test_remove_one_child_right(test_bsts):
+    """Test delete node one child, right."""
+    test_bsts[5].delete(6)
+    assert not test_bsts[5].contains(6)
+    assert test_bsts[5].size() is 5
+
+
+def test_remove_one_child_right_on_left(test_bsts):
+    """Test delete node that is left child with one child, right."""
+    test_bsts[1].insert(2)
+    test_bsts[1].insert(4)
+    test_bsts[1].delete(2)
+    assert not test_bsts[1].contains(2)
+    assert test_bsts[1].size() is 2
+
+
+def test_remove_one_child_left_on_right(test_bsts):
+    """Test delete node that is right child with one child, left."""
+    test_bsts[1].insert(7)
+    test_bsts[1].insert(6)
+    test_bsts[1].delete(7)
+    assert not test_bsts[1].contains(7)
+    assert test_bsts[1].size() is 2
+
+
+def test_remove_one_child_root(test_bsts):
+    """Test delete node that is root with one child."""
+    test_bsts[1].insert(7)
+    test_bsts[1].delete(5)
+    assert not test_bsts[1].contains(5)
+    assert test_bsts[1].size() is 1
+    assert test_bsts[1].root.val is 7
+
+
+def test_delete_two_children(test_bsts):
+    """Test delete node with two children."""
+    test_bsts[3].delete(3)
+    assert not test_bsts[3].contains(3)
+    assert test_bsts[3].size() is 6
+
+
+def test_delete_two_children_root(test_bsts):
+    """Test delete node with two children root."""
+    test_bsts[3].delete(5)
+    assert not test_bsts[3].contains(5)
+    assert test_bsts[3].size() is 6
