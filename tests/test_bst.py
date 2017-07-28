@@ -22,6 +22,7 @@ def test_traversals():
     from src.bst import Bst
     fixture = {
         'tree': Bst(['F', 'B', 'A', 'D', 'C', 'E', 'G', 'I', 'H']),
+        'empty': Bst(),
         'pre_order': ['F', 'B', 'A', 'D', 'C', 'E', 'G', 'I', 'H'],
         'in_order': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],
         'post_order': ['A', 'C', 'E', 'D', 'B', 'H', 'I', 'G', 'F'],
@@ -119,3 +120,9 @@ def test_breadth_first(test_traversals):
     """Test breadth first for a traversal."""
     path = [i for i in test_traversals['tree'].breadth_first()]
     assert path == test_traversals['breadth']
+
+
+def test_traversals_none(test_traversals):
+    """Test traversal when empty."""
+    path = [i for i in test_traversals['empty'].in_order()]
+    assert path == []
