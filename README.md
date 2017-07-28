@@ -259,6 +259,8 @@ Binary Search Trees are a popular data structure choice in computing because of 
 
 - **Resources:**
 https://codefellows.github.io/sea-python-401d6/assignments/bst_1.html
+https://codefellows.github.io/sea-python-401d5/assignments/bst_3_traversals.html
+https://codefellows.github.io/sea-python-401d5/assignments/bst_3_delete.html
 https://codefellows.github.io/sea-python-401d6/lectures/binary_search_tree1.html
 https://en.wikipedia.org/wiki/Tree_traversal
 
