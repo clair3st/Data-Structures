@@ -215,3 +215,4 @@ def test_delete_two_children_root(test_bsts):
     test_bsts[3].delete(5)
     assert not test_bsts[3].contains(5)
     assert test_bsts[3].size() is 6
+    assert test_bsts[3].root.val is 7
