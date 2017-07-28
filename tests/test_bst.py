@@ -113,3 +113,9 @@ def test_post_order(test_traversals):
     """Test postorder for a traversal."""
     path = [i for i in test_traversals['tree'].post_order()]
     assert path == test_traversals['post_order']
+
+
+def test_breadth_first(test_traversals):
+    """Test breadth first for a traversal."""
+    path = [i for i in test_traversals['tree'].breadth_first()]
+    assert path == test_traversals['breadth']
