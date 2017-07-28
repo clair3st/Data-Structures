@@ -1,5 +1,7 @@
 """Python implementation of Binary Search Tree."""
 
+from src.a_queue import Queue
+
 
 class Node(object):
     """Node, or leaf of the BST."""
@@ -182,4 +184,12 @@ class Bst(object):
 
     def breadth_first(self):
         """Breadth first traversal of tree."""
-        pass
+        q = Queue()
+        q.enqueue(self.root)
+        while q.peek():
+            node = q.dequeue()
+            yield node.val
+            if node.left:
+                q.enqueue(node.left)
+            if node.right:
+                q.enqueue(node.right)
