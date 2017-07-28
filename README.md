@@ -189,7 +189,7 @@ _____________
 
 Priority Q is like a regular queue with the added element of a 'priority'. Elements with a higher priority is severed before elements of a lower priority. If two elements have the same priority they are served based on their order in the queue.
 
-<img alt="Priority Q" align="middle" src="https://netmatze.files.wordpress.com/2014/08/queue.png" width="500">
+<img alt="Priority Q" align="middle" src="https://netmatze.files.wordpress.com/2014/08/priorityqueue.png?w=590&h=470" width="500">
 
 Priority Queues are very useful for situations when you need to process items in a particular order, but not necessarily in full sorted order and not all at the same time.
 
