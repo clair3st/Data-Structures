@@ -262,6 +262,7 @@ https://codefellows.github.io/sea-python-401d6/assignments/bst_1.html
 https://codefellows.github.io/sea-python-401d6/lectures/binary_search_tree1.html
 https://en.wikipedia.org/wiki/Tree_traversal
 
+This BST implementation `Bst()` supports the following methods.
 
  Method        | Description   | Time Complexity  
  ------------- |-------------| :---------------:
@@ -272,3 +273,17 @@ https://en.wikipedia.org/wiki/Tree_traversal
  **contians(val)**      | will return True if val is in the BST, False if not     |      Best: O(log n), <br>Worst: O(n)        
  **balance()**      | will return an integer, positive or negative that represents how well balanced the tree is. Trees which are higher on the left than the right should return a positive value, trees which are higher on the right than the left should return a negative value. An ideally-balanced tree should return 0.    |     O(1)        
 
+**Tree traversals**
+
+This is the process of visiting each node in the tree once. Trees may be traversed in multiple ways so the output of nodes depends on the method used.
+
+ - Depth first Traversals:
+    - Pre-order traversal: F, B, A, D, C, E, G, I, H.
+    [Pre-order](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sorted_binary_tree_preorder.svg/440px-Sorted_binary_tree_preorder.svg.png)
+    - In-order traversal: A, B, C, D, E, F, G, H, I.
+    [In-order](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sorted_binary_tree_inorder.svg/440px-Sorted_binary_tree_inorder.svg.png)
+    - Post-order traversal: A, C, E, D, B, H, I, G, F.
+    [Post-order](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Sorted_binary_tree_postorder.svg/440px-Sorted_binary_tree_postorder.svg.png)
+- Breadth first Traversal:
+    - Level-order: F, B, G, A, D, I, C, E, H.
+    [Level-order](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Sorted_binary_tree_breadth-first_traversal.svg/440px-Sorted_binary_tree_breadth-first_traversal.svg.png)
