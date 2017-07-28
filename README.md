@@ -275,10 +275,10 @@ This BST implementation `Bst()` supports the following methods.
  **contians(val)**      | will return True if val is in the BST, False if not     |      Best: O(log n), <br>Worst: O(n)        
  **balance()**      | will return an integer, positive or negative that represents how well balanced the tree is. Trees which are higher on the left than the right should return a positive value, trees which are higher on the right than the left should return a negative value. An ideally-balanced tree should return 0.    |     O(1)     
  **in_order():** |return a generator that will return the values in the tree using in-order traversal, one at a time. | O(n)
-**pre_order(): ** |return a generator that will return the values in the tree using pre-order traversal, one at a time. | O(n)
+**pre_order():** |return a generator that will return the values in the tree using pre-order traversal, one at a time. | O(n)
 **post_order():** | return a generator that will return the values in the tree using post-order traversal, one at a time. | O(n)
-**breadth_first(): ** | return a generator that will return the values in the tree using breadth frist traversal, one at a time. | O(n)
-** delete(val): ** |removes a node from the list. | O(logn)
+**breadth_first():** | return a generator that will return the values in the tree using breadth frist traversal, one at a time. | O(n)
+**delete(val):** |removes a node from the list. | O(logn)
    
 
 **Tree traversals**
