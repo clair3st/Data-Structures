@@ -108,13 +108,13 @@ class DoubleLinkedList(object):
 
         raise ValueError('{} is not in the list'.format(val))
 
-    def __repr__(self):
+    def _repr(self):
         """Return list representation of dll."""
         l = []
         while True:
             try:
                 popped_data = self.pop()
-                l.append(popped_data.data)
+                l.append(popped_data)
             except IndexError:
                 break
         return l
