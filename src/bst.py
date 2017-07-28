@@ -236,6 +236,7 @@ class Bst(object):
                 setattr(node.parent, node._side(), child)
             else:
                 self.root = child
+
         self._size -= 1
 
     def _find_replacement(self, node):
