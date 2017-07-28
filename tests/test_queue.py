@@ -69,7 +69,7 @@ def test_dequeue_to_get_entire_queue(test_queues):
     """Test successive dequeues returns the queue."""
     q = []
     while test_queues[2]._container._length > 0:
-        q.append(test_queues[2].dequeue().data)
+        q.append(test_queues[2].dequeue())
     assert q == [5, 4, 3, 2, 1]
 
 
