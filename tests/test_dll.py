@@ -92,6 +92,11 @@ def test_pop_list_one(test_lists):
     assert test_lists[1]._length is 0
 
 
+def test_pop_returns_data(test_lists):
+    """Test pop returns data."""
+    assert test_lists[2].pop() is 5
+
+
 def test_cant_pop_on_empty_list(test_lists):
     """Test pop on an empty list raises error."""
     with pytest.raises(IndexError, message='Cannot pop from an empty list'):
@@ -114,7 +119,7 @@ def test_append_points_back(test_lists):
     """Test old tail points to new with prev after a append."""
     old_tail = test_lists[1].tail
     test_lists[1].append(6)
-    assert test_lists[1].tail is old_tail.prev
+    assert test_lists[1].tail is old_tail.next
 
 
 def test_append_on_empty_list(test_lists):
@@ -136,7 +141,7 @@ def test_pop_sequence(test_lists):
     while True:
         try:
             popped_data = test_lists[2].pop()
-            l.append(popped_data.data)
+            l.append(popped_data)
         except IndexError:
             break
     assert l == [5, 4, 3, 2, 1]
@@ -146,7 +151,7 @@ def test_push_pop(test_lists):
     """Push data and pop it off."""
     test_lists[1].push(9)
     popped_data = test_lists[1].pop()
-    assert popped_data.data is 9
+    assert popped_data is 9
 
 
 def test_shift_reduces_length(test_lists):
@@ -187,7 +192,7 @@ def test_shift_sequence(test_lists):
     while True:
         try:
             shifted_data = test_lists[2].shift()
-            l.append(shifted_data.data)
+            l.append(shifted_data)
         except IndexError:
             break
     assert l == [1, 2, 3, 4, 5]
@@ -197,7 +202,7 @@ def test_shift_append(test_lists):
     """Append data and shift it off."""
     test_lists[1].append(9)
     shifted_data = test_lists[1].shift()
-    assert shifted_data.data is 9
+    assert shifted_data is 9
 
 
 def test_remove_middle_of_list(test_lists):
@@ -271,12 +276,11 @@ def test_remove_list_of_one(test_lists):
 
 def test_remove_list_of_none(test_lists):
     """Test remove on list of none."""
-    test_lists[0].remove(3)
-    assert test_lists[0].head is None
-    assert test_lists[0].tail is None
+    with pytest.raises(ValueError):
+        test_lists[0].remove(3)
 
 
 def test_remove_of_list_false(test_lists):
     """Test remove from middle of list."""
-    test_lists[2].remove(9)
-    assert test_lists[2]._repr() == [5, 4, 3, 2, 1]
+    with pytest.raises(ValueError):
+        test_lists[2].remove(9)
